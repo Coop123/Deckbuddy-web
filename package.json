@@ -1,0 +1,10 @@
+{
+  "name": "deckbuddy-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Deck Buddy marketing site — static HTML/CSS/JS, no dependencies.",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node -e \"const h=require('http'),f=require('fs'),p=require('path');h.createServer((q,s)=>{let u=q.url.split('?')[0];if(u==='/')u='/index.html';let t=p.join(process.cwd(),u);if(!f.existsSync(t)&&f.existsSync(t+'.html'))t+='.html';if(!f.existsSync(t)||f.statSync(t).isDirectory()){s.writeHead(404);return s.end('Not found')}const e=p.extname(t),m={'.html':'text/html','.css':'text/css','.js':'text/javascript','.json':'application/json','.svg':'image/svg+xml'}[e]||'application/octet-stream';s.writeHead(200,{'Content-Type':m});f.createReadStream(t).pipe(s)}).listen(3000,()=>console.log('http://localhost:3000'))\""
+  }
+}

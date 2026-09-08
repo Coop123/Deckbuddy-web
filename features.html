@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Features — Deck Buddy</title>
+<meta name="description" content="Every piece of Deck Buddy: the deck, the meet sheet, timing modes, tagging, splits, scoring, statuses, imports, export, and the coach dashboard.">
+<script>
+(function(){try{var t=localStorage.getItem('db-theme');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+document.documentElement.setAttribute('data-theme',t);}catch(e){
+document.documentElement.setAttribute('data-theme','light');}})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2365d0eb'/%3E%3Cg fill='none' stroke='%230c1627' stroke-width='6.5' stroke-linecap='round'%3E%3Cpath d='M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3Cpath d='M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<style>
+  /* Sub-nav sticks below the fixed-height chrome above it; anchors land clear of both bars. */
+  .subnav{ top:76px; }
+  main > section[id]{ scroll-margin-top:140px; }
+</style>
+<script src="site.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <svg width="30" height="30" viewBox="0 0 64 64" class="brand-mark" role="img" aria-hidden="true">
+        <title>Deck Buddy mark</title>
+        <rect x="2" y="2" width="60" height="60" rx="18" fill="#65d0eb"></rect>
+        <path d="M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+        <path d="M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+      </svg>
+      Deck Buddy
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link is-active" href="features.html">Features</a>
+      <a class="nav-link" href="demo.html">Demo</a>
+      <a class="btn btn-live" href="call.html">Book a call</a>
+      <button type="button" class="icon-btn" data-theme-toggle aria-label="Switch theme"></button>
+    </nav>
+    <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" role="img" aria-hidden="true">
+        <title>Menu</title>
+        <path d="M3 6h18M3 12h18M3 18h18"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="nav-drawer" id="nav-drawer">
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link is-active" href="features.html">Features</a>
+    <a class="nav-link" href="demo.html">Demo</a>
+    <a class="btn btn-live" href="call.html">Book a call</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ Intro / H1 ============ -->
+  <section class="section-tight">
+    <div class="wrap">
+      <p class="eyebrow reveal">Features</p>
+      <h1 class="display balance reveal">Everything on the deck, and everything after it.</h1>
+      <p class="lede reveal">Ten pieces, one shape: the same at-a-glance sheet a coach already reads, followed
+        all the way from the deck to the dashboard weeks later.</p>
+    </div>
+  </section>
+
+  <!-- ============ Sub-nav ============ -->
+  <nav class="subnav" aria-label="Feature sections">
+    <div class="wrap subnav-inner">
+      <a class="subnav-link" data-spy href="#deck">Deck</a>
+      <a class="subnav-link" data-spy href="#meetsheet">Meet sheet</a>
+      <a class="subnav-link" data-spy href="#timing">Timing</a>
+      <a class="subnav-link" data-spy href="#tagging">Tagging</a>
+      <a class="subnav-link" data-spy href="#splits">Splits</a>
+      <a class="subnav-link" data-spy href="#scoring">Scoring</a>
+      <a class="subnav-link" data-spy href="#statuses">Statuses</a>
+      <a class="subnav-link" data-spy href="#imports">Imports</a>
+      <a class="subnav-link" data-spy href="#export">Export</a>
+      <a class="subnav-link" data-spy href="#dashboards">Dashboards</a>
+    </div>
+  </nav>
+
+  <!-- ============ 1. Deck (text left / panel right) ============ -->
+  <section class="section" id="deck">
+    <div class="wrap">
+      <div class="grid cols-2 align-center-grid">
+        <div>
+          <p class="eyebrow reveal reveal-left">On the deck</p>
+          <h2 class="h2 balance reveal reveal-left">Three panels, lane 1 to the top.</h2>
+          <p class="lede reveal reveal-left">The coach view splits into three stacked panels — what's
+            coming, what's racing right now, and what just happened. Lane numbers show as the bare
+            number. No “L.”</p>
+          <div class="step-list mt-1">
+            <div class="step reveal reveal-left">
+              <span class="step-num">1</span>
+              <div class="step-body">
+                <h3 class="h3">On deck</h3>
+                <p class="muted">The next heat, lane 1 to the highest lane, in an auto-sliding strip.
+                  Toggle between the whole heat and just your swimmers. Tap a card for that swimmer.</p>
+              </div>
+            </div>
+            <div class="step reveal reveal-left">
+              <span class="step-num">2</span>
+              <div class="step-body">
+                <h3 class="h3">In the water</h3>
+                <p class="muted">Collapsed until you hit Start. Starting expands it and arms
+                  tap-to-place — heat nav on either side, a red End button, and it auto-advances once
+                  every lane has a time.</p>
+              </div>
+            </div>
+            <div class="step reveal reveal-left">
+              <span class="step-num">3</span>
+              <div class="step-body">
+                <h3 class="h3">Previous</h3>
+                <p class="muted">The heat that just finished. Shows heat place — full-event places wait
+                  until the whole event is done. Nothing about a finished heat is locked; it's still
+                  clickable.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card reveal reveal-right" aria-hidden="true">
+          <div class="deck-col">
+            <div class="deck-panel">
+              <div class="deck-panel-head">ON DECK</div>
+              <div class="lane">
+                <span class="lane-num tnum">4</span><span class="lane-name">Jonah P.</span>
+                <span class="lane-team" style="--team-color:#e8b931">BDST</span>
+                <span class="lane-box">—</span><span class="lane-box mono tnum">—</span>
+              </div>
+              <div class="lane">
+                <span class="lane-num tnum">5</span><span class="lane-name">Priya S.</span>
+                <span class="lane-team" style="--team-color:#1e3a8a">OAK</span>
+                <span class="lane-box">—</span><span class="lane-box mono tnum">—</span>
+              </div>
+            </div>
+            <div class="deck-panel">
+              <div class="deck-panel-head">IN THE WATER</div>
+              <div class="lane">
+                <span class="lane-num tnum">1</span><span class="lane-name">Nora K.</span>
+                <span class="lane-team" style="--team-color:#1e3a8a">OAK</span>
+                <span class="lane-box filled" data-role="place">1st</span><span class="lane-box mono tnum" data-role="split">31.02</span>
+              </div>
+              <div class="lane">
+                <span class="lane-num tnum">2</span><span class="lane-name">Sam W.</span>
+                <span class="lane-team" style="--team-color:#e8b931">BDST</span>
+                <span class="lane-box" data-role="place">—</span><span class="lane-box mono tnum" data-role="split">—</span>
+              </div>
+            </div>
+            <div class="deck-panel">
+              <div class="deck-panel-head">PREVIOUS</div>
+              <div class="lane">
+                <span class="lane-num tnum">1</span><span class="lane-name">Ruth B.</span>
+                <span class="lane-team" style="--team-color:#1e3a8a">OAK</span>
+                <span class="lane-box filled" data-role="place">1st</span><span class="lane-box mono tnum" data-role="split">29.71</span>
+              </div>
+              <div class="lane">
+                <span class="lane-num tnum">2</span><span class="lane-name">Diego M.</span>
+                <span class="lane-team" style="--team-color:#e8b931">BDST</span>
+                <span class="lane-box filled" data-role="place">2nd</span><span class="lane-box mono tnum" data-role="split">30.15</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2. Meet sheet (panel left / text right) ============ -->
+  <section class="section" id="meetsheet">
+    <div class="wrap">
+      <div class="grid cols-2 align-center-grid">
+        <div class="card reveal reveal-left" aria-hidden="true">
+          <div class="sheet">
+            <div class="sheet-event now-rail">
+              <div class="sheet-event-head">Event 21 · Girls 9-10 50 Free <span class="badge">NOW</span></div>
+              <div class="sheet-heat">Heat 3</div>
+              <div class="sheet-row">
+                <span class="lane-num tnum">1</span><span class="lane-name">Ava L.</span>
+                <span class="lane-team" style="--team-color:#1e3a8a">OAK</span>
+                <span class="mono tnum">—</span>
+              </div>
+              <div class="sheet-row">
+                <span class="lane-num tnum">2</span><span class="lane-name">Diego M.</span>
+                <span class="lane-team" style="--team-color:#e8b931">BDST</span>
+                <span class="mono tnum">—</span>
+              </div>
+            </div>
+            <div class="sheet-event">
+              <div class="sheet-event-head">Event 22 · Mixed 9-10 200 Medley Relay</div>
+              <div class="sheet-heat">Heat 1</div>
+              <div class="row" style="padding-block:.2rem">
+                <span class="chip chip-accent">BDST</span>
+                <span class="faint">Maya R. · Eli T. · Priya S. · Sam W.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="eyebrow reveal reveal-right">The meet sheet</p>
+          <h2 class="h2 balance reveal reveal-right">Event → heat → lane, kept in sync with the deck.</h2>
+          <p class="lede reveal reveal-right">Toggle one event at a time or the whole meet. Live mode
+            highlights the running heat so the sheet and the deck never disagree.</p>
+          <ul class="stack gap-sm mt-1 reveal reveal-right">
+            <li class="row"><span class="chip chip-accent">•</span><span>Search across swimmers, events, and teams.</span></li>
+            <li class="row"><span class="chip chip-accent">•</span><span>Relays show the team plus up to four swimmers — each one individually clickable.</span></li>
+            <li class="row"><span class="chip chip-accent">•</span><span>Champs meets are 9 lanes; dual-meet lane count is selectable.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3. Timing (text left / panel right) ============ -->
+  <section class="section" id="timing">
+    <div class="wrap">
+      <div class="grid cols-2 align-center-grid">
+        <div>
+          <p class="eyebrow reveal reveal-left">Timing</p>
+          <h2 class="h2 balance reveal reveal-left">Two ways to get a time on the board.</h2>
+          <p class="lede reveal reveal-left">Whichever mode a meet runs in, whenever a result carries a
+            real time, Deck Buddy shows improvement against the seed automatically.</p>
+        </div>
+        <div class="stack reveal reveal-right">
+          <div class="card">
+            <h3 class="h3">Connected</h3>
+            <p class="muted">The timing system is the source of truth. Places and times come from it,
+              and touchpad splits arrive on their own. The coach's job is tagging and notes.</p>
+          </div>
+          <div class="card">
+            <h3 class="h3">Not connected</h3>
+            <p class="muted">Hit Start, then tap swimmers' names as they finish. Each tap assigns the
+              next heat place. Heat place only, no times. No keyboard, no stopwatch, no typing — a
+              coach can do it while watching the water.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. Tagging (panel left / text right) ============ -->
+  <section class="section" id="tagging">
+    <div class="wrap">
+      <div class="grid cols-2 align-center-grid">
+        <div class="card reveal reveal-left">
+          <p class="eyebrow">Try it — press a chip</p>
+          <div class="row" data-tagchip-group>
+            <button type="button" class="toggle-chip" data-tagchip aria-pressed="false">Starts</button>
+            <button type="button" class="toggle-chip" data-tagchip aria-pressed="false">Turns *</button>
+            <button type="button" class="toggle-chip" data-tagchip aria-pressed="false">Finishes</button>
+            <button type="button" class="toggle-chip" data-tagchip aria-pressed="false">Streamline</button>
+            <button type="button" class="toggle-chip" data-tagchip aria-pressed="false">Underwaters</button>
+            <button type="button" class="toggle-chip" data-tagchip aria-pressed="false">Kick</button>
+            <button type="button" class="toggle-chip" data-tagchip aria-pressed="false">Stroke technique</button>
+            <button type="button" class="toggle-chip" data-tagchip aria-pressed="false">Breathing</button>
+            <button type="button" class="toggle-chip" data-tagchip aria-pressed="false">Body position</button>
+            <button type="button" class="toggle-chip" data-tagchip aria-pressed="false">Pacing / endurance</button>
+            <button type="button" class="toggle-chip" data-tagchip aria-pressed="false">Race awareness</button>
+          </div>
+          <p class="faint mt-1">* Turns only shows up for swimmers 11 and older.</p>
+        </div>
+
+        <div>
+          <p class="eyebrow reveal reveal-right">Tagging</p>
+          <h2 class="h2 balance reveal reveal-right">Eleven chips. No tree to dig through.</h2>
+          <p class="lede reveal reveal-right">A flat set of broad "needs work" chips, tapped from the
+            swimmer popover. On deck there's no time to navigate a tree — specificity goes in the
+            notes field.</p>
+          <ul class="stack gap-sm mt-1 reveal reveal-right">
+            <li class="row"><span class="chip chip-accent">•</span><span>IM events prefix the tag with the leg you pick — "Back — Turns."</span></li>
+            <li class="row"><span class="chip chip-accent">•</span><span>Relay swimmers add a spot chip: Lead-off / Support / Anchor.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. Splits (text left / panel right) ============ -->
+  <section class="section" id="splits">
+    <div class="wrap">
+      <div class="grid cols-2 align-center-grid">
+        <div>
+          <p class="eyebrow reveal reveal-left">Splits</p>
+          <h2 class="h2 balance reveal reveal-left">Automatic with touchpads. One tap without.</h2>
+          <p class="lede reveal reveal-left">With touchpads, splits arrive on their own. Without them,
+            a splits button opens a popup over the meet sheet — one button per home swimmer in the
+            heat. You tap as they hit the wall. Buttons only, no typing.</p>
+        </div>
+        <div class="card reveal reveal-right" aria-hidden="true">
+          <p class="eyebrow">Splits — Heat 3</p>
+          <div class="stack gap-sm">
+            <span class="btn btn-ghost">Maya R. — Lane 1</span>
+            <span class="btn btn-ghost">Jonah P. — Lane 2</span>
+            <span class="btn btn-ghost">Priya S. — Lane 3</span>
+            <span class="btn btn-ghost">Eli T. — Lane 4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6. Scoring (panel left / text right) ============ -->
+  <section class="section" id="scoring">
+    <div class="wrap">
+      <div class="grid cols-2 align-center-grid">
+        <div class="reveal reveal-left">
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th>Place</th><th>Dual</th><th>Champs</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1st</td><td class="tnum">6</td><td class="tnum">11</td></tr>
+                <tr><td>2nd</td><td class="tnum">4</td><td class="tnum">9</td></tr>
+                <tr><td>3rd</td><td class="tnum">3</td><td class="tnum">8</td></tr>
+                <tr><td>4th</td><td class="tnum">2</td><td class="tnum">7</td></tr>
+                <tr><td>5th</td><td class="tnum">1</td><td class="tnum">6</td></tr>
+                <tr><td>6th</td><td class="tnum">—</td><td class="tnum">5</td></tr>
+                <tr><td>7th</td><td class="tnum">—</td><td class="tnum">4</td></tr>
+                <tr><td>8th</td><td class="tnum">—</td><td class="tnum">3</td></tr>
+                <tr><td>9th</td><td class="tnum">—</td><td class="tnum">2</td></tr>
+                <tr><td>10th</td><td class="tnum">—</td><td class="tnum">1</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="faint mt-1">Dual relays: A-team only, double points. Champs relays: double points,
+            always 9 lanes. Time trials are a third meet type — no points, no places, and they're
+            excluded from improvement.</p>
+        </div>
+
+        <div>
+          <p class="eyebrow reveal reveal-right">Scoring</p>
+          <h2 class="h2 balance reveal reveal-right">Dual, champs, time trials — the math is built in.</h2>
+          <p class="lede reveal reveal-right">Point values differ by meet type. Deck Buddy already
+            knows which one you're running.</p>
+          <div class="card-hl reveal reveal-right">
+            <p class="pull-quote">Improvement % = improved swims ÷ total swims.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7. Statuses (full width, three cards) ============ -->
+  <section class="section" id="statuses">
+    <div class="wrap">
+      <p class="eyebrow center reveal">Statuses</p>
+      <h2 class="h2 center balance reveal">Scratch, no-show, DQ — tracked, not guessed.</h2>
+      <p class="lede center reveal mt-half">All three cross the swimmer out and drop them from
+        placing, scoring, and results.</p>
+      <div class="status-grid stagger mt-2">
+        <div class="card reveal reveal-up">
+          <span class="chip chip-warn">X</span>
+          <h3 class="h3 mt-half">Scratch</h3>
+          <p class="muted">A planned withdrawal, set per-event or whole-meet from the Participants
+            &amp; scratches screen, for any team.</p>
+        </div>
+        <div class="card reveal reveal-up">
+          <span class="chip chip-warn">NS</span>
+          <h3 class="h3 mt-half">No-show</h3>
+          <p class="muted">Entered but didn't show. Toggled from the swimmer popover, same effect as
+            a scratch.</p>
+        </div>
+        <div class="card reveal reveal-up">
+          <span class="chip chip-danger">DQ</span>
+          <h3 class="h3 mt-half">Disqualification</h3>
+          <p class="muted">Carries the exact USA Swimming code, for every team. Warns when you DQ a
+            6-and-under swimmer, and on a relay it's attributed to the specific swimmer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8. Imports (text left / panel right) ============ -->
+  <section class="section" id="imports">
+    <div class="wrap">
+      <div class="grid cols-2 align-center-grid">
+        <div>
+          <p class="eyebrow reveal reveal-left">Imports</p>
+          <h2 class="h2 balance reveal reveal-left">Load the program once. Never retype a roster.</h2>
+          <p class="lede reveal reveal-left">Hy-Tek Meet Manager program PDFs load straight in —
+            multi-column pages get de-columned first.</p>
+          <ul class="stack gap-sm mt-1 reveal reveal-left">
+            <li class="row"><span class="chip chip-accent">•</span><span>Hy-Tek results PDFs merge onto a loaded program by event number and name, or load as a standalone flat meet.</span></li>
+            <li class="row"><span class="chip chip-accent">•</span><span>Time Drops heat sheets come in by pasted text — it's a passcode-gated live SPA with no public feed.</span></li>
+          </ul>
+        </div>
+        <div class="card stack reveal reveal-right">
+          <p class="eyebrow">Tuned on one real program</p>
+          <div class="row"><span class="count h2" data-count="76">0</span><span class="muted">events parsed</span></div>
+          <div class="row"><span class="count h2" data-count="2231">0</span><span class="muted">result entries merged cleanly</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 9. Export (full width) ============ -->
+  <section class="section" id="export">
+    <div class="wrap">
+      <p class="eyebrow reveal">Export</p>
+      <h2 class="h2 balance reveal">A spreadsheet shaped like the sheet you already use.</h2>
+      <p class="lede reveal">A Google Sheet with the roster down the side and stroke categories across
+        the top. Every cell holds place, time, the best-time flag, and comments.</p>
+      <span class="chip sample-tag reveal">Sample data</span>
+      <div class="table-scroll export-grid reveal reveal-up mt-1">
+        <table>
+          <thead>
+            <tr><th>Swimmer</th><th>Medley Relay</th><th>Fly</th><th>Back</th><th>IM</th><th>Breast</th><th>Free</th><th>Free Relay</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Maya R.</td>
+              <td class="export-cell">—</td>
+              <td class="export-cell">1st · 32.14 ·<span class="export-flag">B</span></td>
+              <td class="export-cell">—</td>
+              <td class="export-cell">3rd · 2:41.02</td>
+              <td class="export-cell">—</td>
+              <td class="export-cell">—</td>
+              <td class="export-cell">2nd · 1:52.30</td>
+            </tr>
+            <tr>
+              <td>Jonah P.</td>
+              <td class="export-cell">—</td>
+              <td class="export-cell">1st · 29.88 ·<span class="export-flag">BR</span></td>
+              <td class="export-cell">—</td>
+              <td class="export-cell">—</td>
+              <td class="export-cell">—</td>
+              <td class="export-cell">4th · 26.90</td>
+              <td class="export-cell">—</td>
+            </tr>
+            <tr>
+              <td>Priya S.</td>
+              <td class="export-cell">—</td>
+              <td class="export-cell">—</td>
+              <td class="export-cell">2nd · 33.02</td>
+              <td class="export-cell">—</td>
+              <td class="export-cell">4th · 38.71</td>
+              <td class="export-cell">—</td>
+              <td class="export-cell">—</td>
+            </tr>
+            <tr>
+              <td>Eli T.</td>
+              <td class="export-cell">1st · 1:48.20</td>
+              <td class="export-cell">—</td>
+              <td class="export-cell">—</td>
+              <td class="export-cell">—</td>
+              <td class="export-cell">—</td>
+              <td class="export-cell">5th · 34.90</td>
+              <td class="export-cell">3rd · 1:55.40</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="faint mt-1 reveal">B marks a swim that beats the swimmer's own seed. BR marks a swim
+        that beats the event record. Both flags follow through to the export.</p>
+    </div>
+  </section>
+
+  <!-- ============ 10. Dashboards (full width) ============ -->
+  <section class="section" id="dashboards">
+    <div class="wrap">
+      <p class="eyebrow reveal">Dashboards</p>
+      <h2 class="h2 balance reveal">Between meets, not on deck.</h2>
+      <p class="lede reveal">Six KPI cards, trend charts, and the tag engine that finds Monday's
+        practice plan for you.</p>
+      <span class="chip sample-tag reveal">Sample data</span>
+
+      <div class="kpi-grid stagger mt-2">
+        <div class="card kpi-tile reveal reveal-up">
+          <span class="kpi-label">Team record</span>
+          <span class="kpi-value tnum">14–5</span>
+        </div>
+        <div class="card kpi-tile reveal reveal-up">
+          <span class="kpi-label">Improvement %</span>
+          <span class="kpi-value tnum">61%</span>
+          <span class="kpi-delta delta-up">+6% vs last meet</span>
+        </div>
+        <div class="card kpi-tile reveal reveal-up">
+          <span class="kpi-label">Best times</span>
+          <span class="kpi-value tnum">38</span>
+          <span class="kpi-delta delta-up">+9 this season</span>
+        </div>
+        <div class="card kpi-tile reveal reveal-up">
+          <span class="kpi-label">Records</span>
+          <span class="kpi-value tnum">3</span>
+          <span class="kpi-delta delta-up">+1 this meet</span>
+        </div>
+        <div class="card kpi-tile reveal reveal-up">
+          <span class="kpi-label">DQ rate</span>
+          <span class="kpi-value tnum">4%</span>
+          <span class="kpi-delta delta-up">−2% vs last meet</span>
+        </div>
+        <div class="card kpi-tile reveal reveal-up">
+          <span class="kpi-label">Meet points</span>
+          <span class="kpi-value tnum">312</span>
+          <span class="kpi-delta delta-down">−18 vs last meet</span>
+        </div>
+      </div>
+
+      <div class="grid cols-2 mt-2 align-center-grid">
+        <div class="reveal reveal-left">
+          <div class="bar-row">
+            <div class="bar-row-head"><span>Turns</span><span class="tnum muted">68%</span></div>
+            <div class="bar" data-pct="68"><div class="bar-fill"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-row-head"><span>Streamline</span><span class="tnum muted">54%</span></div>
+            <div class="bar" data-pct="54"><div class="bar-fill"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-row-head"><span>Finishes</span><span class="tnum muted">41%</span></div>
+            <div class="bar" data-pct="41"><div class="bar-fill"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-row-head"><span>Breathing</span><span class="tnum muted">33%</span></div>
+            <div class="bar" data-pct="33"><div class="bar-fill"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-row-head"><span>Underwaters</span><span class="tnum muted">27%</span></div>
+            <div class="bar" data-pct="27"><div class="bar-fill"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-row-head"><span>Starts</span><span class="tnum muted">19%</span></div>
+            <div class="bar" data-pct="19"><div class="bar-fill"></div></div>
+          </div>
+        </div>
+        <div class="reveal reveal-right">
+          <p class="lede">"Turns is our #1 issue across 9–10s" — that's Monday's practice plan.
+            Cut the same tags by age group, by stroke, or over the season, and watch the bar shrink
+            after you coach it.</p>
+          <p class="eyebrow mt-1">Tables</p>
+          <div class="row">
+            <span class="chip">Roster</span>
+            <span class="chip">Needs attention</span>
+            <span class="chip">Top performers</span>
+            <span class="chip">DQ log</span>
+            <span class="chip">Event coverage</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Design principles ============ -->
+  <section class="section-tight">
+    <div class="wrap">
+      <p class="eyebrow center reveal">Design principles</p>
+      <h2 class="h2 center balance reveal">Built for wet hands and a bright deck.</h2>
+      <div class="grid cols-4 stagger mt-2">
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Liquid glass</h3>
+          <p class="muted">Translucent, layered panels that sit over content instead of boxing it in.
+            Light blues and pinks, never a flat sheet of color.</p>
+        </div>
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Big tap targets</h3>
+          <p class="muted">Wet hands, fast taps, moving between heats. Hitting the wrong swimmer is
+            worse than scrolling, so targets stay big.</p>
+        </div>
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Legible in the sun</h3>
+          <p class="muted">Every glass panel that carries text gets real blur plus a mostly-opaque
+            ground — never body text over unblurred glass.</p>
+        </div>
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Light and dark, both real</h3>
+          <p class="muted">Both themes ship as complete palettes, not an inverted afterthought —
+            light blues and pinks either way.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA band ============ -->
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="glass-lg cta-band reveal reveal-pop">
+        <h2 class="h2 balance">Ready to put this on your deck?</h2>
+        <div class="cta-actions">
+          <a class="btn btn-live" href="call.html">Book a call</a>
+          <a class="btn btn-ghost" href="demo.html">See the live demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="brand mb-tight" href="index.html">
+          <svg width="24" height="24" viewBox="0 0 64 64" class="brand-mark" role="img" aria-hidden="true">
+        <title>Deck Buddy mark</title>
+        <rect x="2" y="2" width="60" height="60" rx="18" fill="#65d0eb"></rect>
+        <path d="M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+        <path d="M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+      </svg>
+          Deck Buddy
+        </a>
+        <p class="muted small">The paper meet sheet, replaced — same shape, every mark becomes data.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="features.html">Features</a>
+        <a href="demo.html">Demo</a>
+        <a href="call.html">Book a call</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:cooper.pisani@gmail.com">cooper.pisani@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Deck Buddy · Built on the deck, for the deck.</span>
+      <span class="version-chip mono">Version 0.0.D</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  try {
+    var chips = document.querySelectorAll("[data-tagchip]");
+    for (var i = 0; i < chips.length; i++) {
+      chips[i].addEventListener("click", function () {
+        var pressed = this.getAttribute("aria-pressed") === "true";
+        this.setAttribute("aria-pressed", pressed ? "false" : "true");
+      });
+    }
+  } catch (e) { /* purely cosmetic, safe to no-op */ }
+})();
+</script>
+
+</body>
+</html>

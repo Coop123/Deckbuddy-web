@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deck Buddy — run the whole meet from one screen</title>
+<meta name="description" content="Deck Buddy replaces the paper meet sheet at competitive swim meets. Same at-a-glance shape a coach already reads — but every mark becomes data.">
+<script>
+(function(){try{var t=localStorage.getItem('db-theme');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+document.documentElement.setAttribute('data-theme',t);}catch(e){
+document.documentElement.setAttribute('data-theme','light');}})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2365d0eb'/%3E%3Cg fill='none' stroke='%230c1627' stroke-width='6.5' stroke-linecap='round'%3E%3Cpath d='M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3Cpath d='M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script src="site.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <svg width="30" height="30" viewBox="0 0 64 64" class="brand-mark" role="img" aria-hidden="true">
+        <title>Deck Buddy mark</title>
+        <rect x="2" y="2" width="60" height="60" rx="18" fill="#65d0eb"></rect>
+        <path d="M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+        <path d="M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+      </svg>
+      Deck Buddy
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link is-active" href="index.html">Home</a>
+      <a class="nav-link" href="features.html">Features</a>
+      <a class="nav-link" href="demo.html">Demo</a>
+      <a class="btn btn-live" href="call.html">Book a call</a>
+      <button type="button" class="icon-btn" data-theme-toggle aria-label="Switch theme"></button>
+    </nav>
+    <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" role="img" aria-hidden="true">
+        <title>Menu</title>
+        <path d="M3 6h18M3 12h18M3 18h18"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="nav-drawer" id="nav-drawer">
+    <a class="nav-link is-active" href="index.html">Home</a>
+    <a class="nav-link" href="features.html">Features</a>
+    <a class="nav-link" href="demo.html">Demo</a>
+    <a class="btn btn-live" href="call.html">Book a call</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ Hero ============ -->
+  <section class="section hero">
+    <span class="float-a" aria-hidden="true"></span>
+    <span class="float-b" aria-hidden="true"></span>
+    <div class="wrap hero-grid">
+      <div class="hero-copy reveal reveal-left in">
+        <p class="eyebrow">Built on the pool deck</p>
+        <h1 class="display balance">Run the whole meet from one screen.</h1>
+        <p class="lede">Paper meet sheets are write-once and unsearchable. Deck Buddy keeps the same
+          at-a-glance shape a coach already reads — but every mark becomes data.</p>
+        <div class="hero-actions">
+          <a class="btn btn-accent" href="demo.html">See the live demo</a>
+          <a class="btn btn-ghost" href="call.html">Book a call</a>
+        </div>
+        <p class="trust-line">iPad on deck · phone for swimmers · computer for meet entry</p>
+      </div>
+
+      <div class="hero-mock reveal reveal-right in">
+        <div class="device-frame tilt">
+          <div class="device-bezel" data-deck-mock aria-hidden="true">
+            <div class="deck-topbar">
+              <span class="team-chip" style="--team-color:#e8b931"><span class="dot"></span>BDST <span class="tnum">6</span></span>
+              <span class="live-pill"><span class="live-dot"></span>LIVE</span>
+              <span class="deck-clock mono tnum">
+                <span class="flip">
+                  <span class="flip-tile" data-flip-tile data-static="0">0</span>
+                  <span class="flip-tile" data-flip-tile data-static=":">:</span>
+                  <span class="flip-tile" data-flip-tile data-static="4">4</span>
+                  <span class="flip-tile" data-flip-tile data-static="1">1</span>
+                </span>
+              </span>
+              <span class="team-chip" style="--team-color:#1e3a8a"><span class="dot"></span>OAK <span class="tnum">5</span></span>
+            </div>
+
+            <div class="deck">
+              <div class="deck-col">
+
+                <div class="deck-panel" data-panel="ondeck">
+                  <div class="deck-panel-head">ON DECK</div>
+                  <div class="lane">
+                    <span class="lane-num tnum">1</span><span class="lane-name">Maya R.</span>
+                    <span class="lane-team" style="--team-color:#1e3a8a">OAK</span>
+                    <span class="lane-box">—</span><span class="lane-box mono tnum">—</span>
+                  </div>
+                  <div class="lane">
+                    <span class="lane-num tnum">2</span><span class="lane-name">Jonah P.</span>
+                    <span class="lane-team" style="--team-color:#e8b931">BDST</span>
+                    <span class="lane-box">—</span><span class="lane-box mono tnum">—</span>
+                  </div>
+                  <div class="lane">
+                    <span class="lane-num tnum">3</span><span class="lane-name">Priya S.</span>
+                    <span class="lane-team" style="--team-color:#1e3a8a">OAK</span>
+                    <span class="lane-box">—</span><span class="lane-box mono tnum">—</span>
+                  </div>
+                  <div class="lane">
+                    <span class="lane-num tnum">4</span><span class="lane-name">Eli T.</span>
+                    <span class="lane-team" style="--team-color:#e8b931">BDST</span>
+                    <span class="lane-box">—</span><span class="lane-box mono tnum">—</span>
+                  </div>
+                </div>
+
+                <div class="deck-panel" data-panel="water">
+                  <div class="deck-panel-head">IN THE WATER</div>
+                  <div class="lane">
+                    <span class="lane-num tnum">1</span><span class="lane-name">Ava L.</span>
+                    <span class="lane-team" style="--team-color:#1e3a8a">OAK</span>
+                    <span class="lane-box" data-role="place">—</span><span class="lane-box mono tnum" data-role="split">—</span>
+                  </div>
+                  <div class="lane">
+                    <span class="lane-num tnum">2</span><span class="lane-name">Diego M.</span>
+                    <span class="lane-team" style="--team-color:#e8b931">BDST</span>
+                    <span class="lane-box" data-role="place">—</span><span class="lane-box mono tnum" data-role="split">—</span>
+                  </div>
+                  <div class="lane">
+                    <span class="lane-num tnum">3</span><span class="lane-name">Ruth B.</span>
+                    <span class="lane-team" style="--team-color:#1e3a8a">OAK</span>
+                    <span class="lane-box" data-role="place">—</span><span class="lane-box mono tnum" data-role="split">—</span>
+                  </div>
+                  <div class="lane">
+                    <span class="lane-num tnum">4</span><span class="lane-name">Maya R.</span>
+                    <span class="lane-team" style="--team-color:#e8b931">BDST</span>
+                    <span class="lane-box" data-role="place">—</span><span class="lane-box mono tnum" data-role="split">—</span>
+                  </div>
+                  <div class="lane">
+                    <span class="lane-num tnum">5</span><span class="lane-name">Jonah P.</span>
+                    <span class="lane-team" style="--team-color:#1e3a8a">OAK</span>
+                    <span class="lane-box" data-role="place">—</span><span class="lane-box mono tnum" data-role="split">—</span>
+                  </div>
+                  <div class="lane">
+                    <span class="lane-num tnum">6</span><span class="lane-name">Priya S.</span>
+                    <span class="lane-team" style="--team-color:#e8b931">BDST</span>
+                    <span class="lane-box" data-role="place">—</span><span class="lane-box mono tnum" data-role="split">—</span>
+                  </div>
+                </div>
+
+                <div class="deck-panel" data-panel="previous">
+                  <div class="deck-panel-head">PREVIOUS</div>
+                  <div class="lane">
+                    <span class="lane-num tnum">1</span><span class="lane-name">Eli T.</span>
+                    <span class="lane-team" style="--team-color:#e8b931">BDST</span>
+                    <span class="lane-box filled" data-role="place">1st</span><span class="lane-box mono tnum" data-role="split">28.94</span>
+                  </div>
+                  <div class="lane">
+                    <span class="lane-num tnum">2</span><span class="lane-name">Nora K.</span>
+                    <span class="lane-team" style="--team-color:#1e3a8a">OAK</span>
+                    <span class="lane-box filled" data-role="place">2nd</span><span class="lane-box mono tnum" data-role="split">29.41</span>
+                  </div>
+                  <div class="lane">
+                    <span class="lane-num tnum">3</span><span class="lane-name">Sam W.</span>
+                    <span class="lane-team" style="--team-color:#e8b931">BDST</span>
+                    <span class="lane-box filled" data-role="place">3rd</span><span class="lane-box mono tnum" data-role="split">30.02</span>
+                  </div>
+                  <div class="lane">
+                    <span class="lane-num tnum">4</span><span class="lane-name">Ava L.</span>
+                    <span class="lane-team" style="--team-color:#1e3a8a">OAK</span>
+                    <span class="lane-box filled" data-role="place">4th</span><span class="lane-box mono tnum" data-role="split">30.87</span>
+                  </div>
+                  <div class="lane">
+                    <span class="lane-num tnum">5</span><span class="lane-name">Diego M.</span>
+                    <span class="lane-team" style="--team-color:#e8b931">BDST</span>
+                    <span class="lane-box filled" data-role="place">5th</span><span class="lane-box mono tnum" data-role="split">31.55</span>
+                  </div>
+                  <div class="lane">
+                    <span class="lane-num tnum">6</span><span class="lane-name">Ruth B.</span>
+                    <span class="lane-team" style="--team-color:#1e3a8a">OAK</span>
+                    <span class="lane-box filled" data-role="place">6th</span><span class="lane-box mono tnum" data-role="split">32.10</span>
+                  </div>
+                  <span class="tag-pop" data-tag-pop>Turns</span>
+                </div>
+
+              </div>
+
+              <div class="sheet">
+                <div class="sheet-event now-rail">
+                  <div class="sheet-event-head">Event 21 · Girls 9-10 50 Free <span class="badge">NOW</span></div>
+                  <div class="sheet-heat">Heat 3</div>
+                  <div class="sheet-row">
+                    <span class="lane-num tnum">1</span><span class="lane-name">Ava L.</span>
+                    <span class="lane-team" style="--team-color:#1e3a8a">OAK</span>
+                    <span class="mono tnum">—</span>
+                  </div>
+                  <div class="sheet-row">
+                    <span class="lane-num tnum">2</span><span class="lane-name">Diego M.</span>
+                    <span class="lane-team" style="--team-color:#e8b931">BDST</span>
+                    <span class="mono tnum">—</span>
+                  </div>
+                  <div class="sheet-row">
+                    <span class="lane-num tnum">3</span><span class="lane-name">Ruth B.</span>
+                    <span class="lane-team" style="--team-color:#1e3a8a">OAK</span>
+                    <span class="mono tnum">—</span>
+                  </div>
+                  <div class="sheet-row">
+                    <span class="lane-num tnum">4</span><span class="lane-name">Maya R.</span>
+                    <span class="lane-team" style="--team-color:#e8b931">BDST</span>
+                    <span class="mono tnum">—</span>
+                  </div>
+                </div>
+                <div class="sheet-event">
+                  <div class="sheet-event-head">Event 22 · Boys 9-10 50 Free</div>
+                  <div class="sheet-heat">Heat 1</div>
+                  <div class="sheet-row">
+                    <span class="lane-num tnum">1</span><span class="lane-name">Jonah P.</span>
+                    <span class="lane-team" style="--team-color:#1e3a8a">OAK</span>
+                    <span class="mono tnum">—</span>
+                  </div>
+                  <div class="sheet-row">
+                    <span class="lane-num tnum">2</span><span class="lane-name">Priya S.</span>
+                    <span class="lane-team" style="--team-color:#e8b931">BDST</span>
+                    <span class="mono tnum">—</span>
+                  </div>
+                  <div class="sheet-row">
+                    <span class="lane-num tnum">3</span><span class="lane-name">Sam W.</span>
+                    <span class="lane-team" style="--team-color:#1e3a8a">OAK</span>
+                    <span class="mono tnum">—</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="visually-hidden" id="deck-mock-desc">Animated preview of the Deck Buddy coach screen: on the left, the heat racing now and the heat that just finished; on the right, the full meet sheet with the current heat highlighted. Places fill in as swimmers finish, then the heat rolls into Previous and the sheet advances to the next event.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ The problem ============ -->
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="grid cols-3 stagger">
+        <div class="card card-hl reveal reveal-pop">
+          <h3 class="h3">Write-once</h3>
+          <p class="muted">A meet sheet gets one clean pass, at the table, before the meet starts. Every mark
+            after that — a DQ, a drop, a note about a rough start — gets squeezed into a margin or just remembered.</p>
+        </div>
+        <div class="card card-hl reveal reveal-pop">
+          <h3 class="h3">Unsearchable</h3>
+          <p class="muted">Ask how your 9–10 girls did on turns this season and paper has no answer. The
+            information exists. It's on forty sheets in a binder, if it's anywhere at all.</p>
+        </div>
+        <div class="card card-hl reveal reveal-pop">
+          <h3 class="h3">Gone by August</h3>
+          <p class="muted">End of season, the binder goes in a box. Next year's coach starts from nothing —
+            no history, no trend, no idea what the team actually needed to work on.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Anatomy of the deck ============ -->
+  <section class="section" id="anatomy">
+    <div class="wrap">
+      <div class="grid cols-2 align-center-grid">
+        <div class="step-list">
+          <p class="eyebrow reveal reveal-left">Anatomy of the deck</p>
+          <div class="step reveal reveal-left">
+            <span class="step-num">1</span>
+            <div class="step-body">
+              <h3 class="h3">On deck</h3>
+              <p class="muted">The next heat. Lane 1 to the highest lane, in an auto-sliding strip. Toggle
+                between the whole heat and just your swimmers. Tap a card for that swimmer.</p>
+            </div>
+          </div>
+          <div class="step reveal reveal-left">
+            <span class="step-num">2</span>
+            <div class="step-body">
+              <h3 class="h3">In the water</h3>
+              <p class="muted">The heat racing now. Collapsed until you hit Start — starting expands it and
+                arms tap-to-place. Heat nav on either side, a red End button, and it auto-advances once every
+                lane has a time.</p>
+            </div>
+          </div>
+          <div class="step reveal reveal-left">
+            <span class="step-num">3</span>
+            <div class="step-body">
+              <h3 class="h3">Previous</h3>
+              <p class="muted">The heat that just finished. Shows heat place — full-event places wait until
+                the whole event is done. Nothing about a finished heat is locked; it's still clickable.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass card diagram reveal reveal-right" aria-hidden="true">
+          <div class="diagram-row inset">
+            <span class="diagram-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h10M4 18h6"></path></svg>
+            </span>
+            <div><strong>On deck</strong><div class="faint">Next heat, lane 1 up</div></div>
+          </div>
+          <div class="diagram-row inset">
+            <span class="diagram-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="7"></circle><path d="M12 8v4l3 2"></path></svg>
+            </span>
+            <div><strong>In the water</strong><div class="faint">Racing now, tap to place</div></div>
+          </div>
+          <div class="diagram-row inset">
+            <span class="diagram-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 13l4 4L19 7"></path></svg>
+            </span>
+            <div><strong>Previous</strong><div class="faint">Just finished, still clickable</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Timing modes ============ -->
+  <section class="section-tight">
+    <div class="wrap">
+      <p class="eyebrow center reveal">Timing modes</p>
+      <h2 class="h2 center balance reveal">Works with a timing system. Works without one.</h2>
+      <div class="timing-grid mt-2">
+        <div class="card reveal reveal-left">
+          <h3 class="h3">Connected to a timing system</h3>
+          <p class="muted">The timing system is the source of truth. Places and times come from it, and
+            touchpad splits arrive on their own. Your job is tagging and notes — nothing to log by hand.</p>
+        </div>
+        <div class="card reveal reveal-right">
+          <h3 class="h3">No timing system</h3>
+          <p class="muted">Hit Start, then tap swimmers' names as they finish. Each tap assigns the next
+            heat place. Heat place only, no times. No keyboard, no stopwatch, no typing — you can do it
+            while watching the water.</p>
+          <ol class="stack mt-1 gap-sm">
+            <li class="row"><span class="chip chip-accent">1</span> Hit Start — the heat arms for tap-to-place.</li>
+            <li class="row"><span class="chip chip-accent">2</span> Tap each swimmer's name as they touch the wall.</li>
+            <li class="row"><span class="chip chip-accent">3</span> The heat closes itself once every lane has a place.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ The tag engine ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="tagengine-grid">
+        <div class="reveal reveal-left">
+          <p class="eyebrow">The tag engine</p>
+          <h2 class="h2 balance">The part paper can never do.</h2>
+          <p class="lede">Every tag you drop on deck rolls up automatically — team-wide, cut by age group,
+            by stroke, and over time.</p>
+          <div class="card-hl">
+            <p class="pull-quote">"Turns is our #1 issue across 9–10s."</p>
+            <p class="faint mt-half">That's Monday's practice plan. Watch the bar shrink
+              after you coach it.</p>
+          </div>
+        </div>
+        <div class="reveal reveal-right">
+          <div class="bar-row">
+            <div class="bar-row-head"><span>Turns</span><span class="tnum muted">68%</span></div>
+            <div class="bar" data-pct="68"><div class="bar-fill"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-row-head"><span>Streamline</span><span class="tnum muted">54%</span></div>
+            <div class="bar" data-pct="54"><div class="bar-fill"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-row-head"><span>Finishes</span><span class="tnum muted">41%</span></div>
+            <div class="bar" data-pct="41"><div class="bar-fill"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-row-head"><span>Breathing</span><span class="tnum muted">33%</span></div>
+            <div class="bar" data-pct="33"><div class="bar-fill"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-row-head"><span>Underwaters</span><span class="tnum muted">27%</span></div>
+            <div class="bar" data-pct="27"><div class="bar-fill"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-row-head"><span>Starts</span><span class="tnum muted">19%</span></div>
+            <div class="bar" data-pct="19"><div class="bar-fill"></div></div>
+          </div>
+          <span class="chip sample-tag">Sample data</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Numbers strip ============ -->
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="numbers-grid stagger">
+        <div class="number-tile reveal reveal-pop">
+          <span class="count" data-count="76">0</span>
+          <p class="number-label muted">events parsed from a real championship program</p>
+        </div>
+        <div class="number-tile reveal reveal-pop">
+          <span class="count" data-count="2200" data-suffix="+">0</span>
+          <p class="number-label muted">entries in that program</p>
+        </div>
+        <div class="number-tile reveal reveal-pop">
+          <span class="count" data-count="9">0</span>
+          <p class="number-label muted">lanes at champs</p>
+        </div>
+        <div class="number-tile reveal reveal-pop">
+          <span class="count" data-count="0">0</span>
+          <p class="number-label muted">sheets of paper</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Three surfaces ============ -->
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow center reveal">Three surfaces</p>
+      <h2 class="h2 center balance reveal">One system, built for where you're standing.</h2>
+      <div class="grid cols-3 stagger mt-2">
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Coach deck</h3>
+          <p class="faint">iPad recommended, phone works too</p>
+          <p class="muted mt-half">Standing, moving, wet hands, sun on the screen, between
+            heats. Built for tap-to-place and big targets, not typing.</p>
+        </div>
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Swimmer side</h3>
+          <p class="faint">Phone</p>
+          <p class="muted mt-half">Sitting under a canopy. Up next, results so far, best
+            times, and a progression chart for the off day.</p>
+        </div>
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Meet entry</h3>
+          <p class="faint">Computer or iPad</p>
+          <p class="muted mt-half">Sitting, keyboard available. Dense forms are fine here —
+            this is where the program and results get loaded in.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA band ============ -->
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="glass-lg cta-band reveal reveal-pop">
+        <h2 class="h2 balance">Want to see it run a meet?</h2>
+        <div class="cta-actions">
+          <a class="btn btn-accent" href="demo.html">See the live demo</a>
+          <a class="btn btn-ghost" href="call.html">Book a call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="brand mb-tight" href="index.html">
+          <svg width="24" height="24" viewBox="0 0 64 64" class="brand-mark" role="img" aria-hidden="true">
+        <title>Deck Buddy mark</title>
+        <rect x="2" y="2" width="60" height="60" rx="18" fill="#65d0eb"></rect>
+        <path d="M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+        <path d="M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+      </svg>
+          Deck Buddy
+        </a>
+        <p class="muted small">The paper meet sheet, replaced — same shape, every mark becomes data.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="features.html">Features</a>
+        <a href="demo.html">Demo</a>
+        <a href="call.html">Book a call</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:cooper.pisani@gmail.com">cooper.pisani@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Deck Buddy · Built on the deck, for the deck.</span>
+      <span class="version-chip mono">Version 0.0.D</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

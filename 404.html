@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Deck Buddy</title>
+<meta name="description" content="That page isn't part of Deck Buddy.">
+<meta name="robots" content="noindex">
+<script>
+(function(){try{var t=localStorage.getItem('db-theme');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+document.documentElement.setAttribute('data-theme',t);}catch(e){
+document.documentElement.setAttribute('data-theme','light');}})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2365d0eb'/%3E%3Cg fill='none' stroke='%230c1627' stroke-width='6.5' stroke-linecap='round'%3E%3Cpath d='M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3Cpath d='M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script src="site.js" defer></script>
+<style>
+  .nf{min-height:68vh;display:flex;align-items:center}
+  .nf-code{font-size:clamp(3.5rem,11vw,7rem);font-weight:800;line-height:1;letter-spacing:-.03em;
+    color:var(--db-accent-ink);
+    background-image:linear-gradient(120deg,var(--db-accent),var(--db-live));
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .nf-panel{padding:clamp(1.75rem,4vw,3rem);max-width:44rem;margin-inline:auto;text-align:center}
+  .nf-lanes{display:flex;gap:.4rem;justify-content:center;margin-bottom:1.25rem}
+  .nf-lane{width:2.25rem;height:.4rem;border-radius:999px;background:var(--db-line)}
+  .nf-lane.on{background:var(--db-live)}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <svg width="30" height="30" viewBox="0 0 64 64" class="brand-mark" role="img" aria-hidden="true">
+        <title>Deck Buddy mark</title>
+        <rect x="2" y="2" width="60" height="60" rx="18" fill="#65d0eb"></rect>
+        <path d="M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+        <path d="M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+      </svg>
+      Deck Buddy
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="features.html">Features</a>
+      <a class="nav-link" href="demo.html">Demo</a>
+      <a class="btn btn-live" href="call.html">Book a call</a>
+      <button type="button" class="icon-btn" data-theme-toggle aria-label="Switch theme"></button>
+    </nav>
+    <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" role="img" aria-hidden="true">
+        <title>Menu</title>
+        <path d="M3 6h18M3 12h18M3 18h18"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="nav-drawer" id="nav-drawer">
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="features.html">Features</a>
+    <a class="nav-link" href="demo.html">Demo</a>
+    <a class="btn btn-live" href="call.html">Book a call</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section nf">
+    <span class="float-a" aria-hidden="true"></span>
+    <span class="float-b" aria-hidden="true"></span>
+    <div class="wrap">
+      <div class="glass-lg nf-panel reveal reveal-pop">
+        <div class="nf-lanes" aria-hidden="true">
+          <span class="nf-lane"></span><span class="nf-lane"></span><span class="nf-lane on"></span>
+          <span class="nf-lane"></span><span class="nf-lane"></span>
+        </div>
+        <p class="nf-code">404</p>
+        <h1 class="h2 balance">Nothing in this lane.</h1>
+        <p class="lede" style="margin-inline:auto">That page isn't part of Deck Buddy. If you followed an old link
+          to the app, it isn't served from this address any more.</p>
+        <div class="cta-actions">
+          <a class="btn btn-accent" href="index.html">Back to the start</a>
+          <a class="btn btn-ghost" href="demo.html">See the live demo</a>
+        </div>
+        <p class="faint" style="margin-top:1.25rem">Looking for something specific?
+          <a href="mailto:cooper.pisani@gmail.com">Email me</a> and I'll point you at it.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="brand mb-tight" href="index.html">
+          <svg width="24" height="24" viewBox="0 0 64 64" class="brand-mark" role="img" aria-hidden="true">
+        <title>Deck Buddy mark</title>
+        <rect x="2" y="2" width="60" height="60" rx="18" fill="#65d0eb"></rect>
+        <path d="M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+        <path d="M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+      </svg>
+          Deck Buddy
+        </a>
+        <p class="muted small">The paper meet sheet, replaced — same shape, every mark becomes data.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="features.html">Features</a>
+        <a href="demo.html">Demo</a>
+        <a href="call.html">Book a call</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:cooper.pisani@gmail.com">cooper.pisani@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Deck Buddy · Built on the deck, for the deck.</span>
+      <span class="version-chip mono">Version 0.0.D</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

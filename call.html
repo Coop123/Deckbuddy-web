@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book a call — Deck Buddy</title>
+<meta name="description" content="Twenty minutes on video or phone. We watch the deck run a heat and talk about whether Deck Buddy fits your program — no pitch, no pressure.">
+<script>
+(function(){try{var t=localStorage.getItem('db-theme');
+if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+document.documentElement.setAttribute('data-theme',t);}catch(e){
+document.documentElement.setAttribute('data-theme','light');}})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2365d0eb'/%3E%3Cg fill='none' stroke='%230c1627' stroke-width='6.5' stroke-linecap='round'%3E%3Cpath d='M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3Cpath d='M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script src="site.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <svg width="30" height="30" viewBox="0 0 64 64" class="brand-mark" role="img" aria-hidden="true">
+        <title>Deck Buddy mark</title>
+        <rect x="2" y="2" width="60" height="60" rx="18" fill="#65d0eb"></rect>
+        <path d="M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+        <path d="M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+      </svg>
+      Deck Buddy
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="features.html">Features</a>
+      <a class="nav-link" href="demo.html">Demo</a>
+      <a class="btn btn-live" href="call.html">Book a call</a>
+      <button type="button" class="icon-btn" data-theme-toggle aria-label="Switch theme"></button>
+    </nav>
+    <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" role="img" aria-hidden="true">
+        <title>Menu</title>
+        <path d="M3 6h18M3 12h18M3 18h18"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="nav-drawer" id="nav-drawer">
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="features.html">Features</a>
+    <a class="nav-link" href="demo.html">Demo</a>
+    <a class="btn btn-live" href="call.html">Book a call</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ Hero ============ -->
+  <section class="section-tight">
+    <div class="wrap-narrow center">
+      <p class="eyebrow reveal">Book a call</p>
+      <h1 class="display balance center reveal">Twenty minutes, on your schedule.</h1>
+      <p class="lede center reveal">Not a sales pitch. We watch the deck run a heat, and you decide
+        if it's worth trying at your next meet.</p>
+    </div>
+  </section>
+
+  <!-- ============ Two-column: what/who + form ============ -->
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="call-grid">
+
+        <!-- Left column -->
+        <div class="stack reveal reveal-left">
+          <div>
+            <h2 class="h2">What we'll actually do</h2>
+            <div class="step-list mt-1">
+              <div class="step">
+                <span class="step-num">1</span>
+                <div class="step-body">
+                  <p class="muted">How your meets run today — timing setup, who's on deck, what's
+                    already working.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step-num">2</span>
+                <div class="step-body">
+                  <p class="muted">Watch the deck run a heat — tap-to-place, the meet sheet, and
+                    tagging, live.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step-num">3</span>
+                <div class="step-body">
+                  <p class="muted">What would have to be true for your program — timing system,
+                    roster size, who'd actually run it on deck.</p>
+                </div>
+              </div>
+              <div class="step">
+                <span class="step-num">4</span>
+                <div class="step-body">
+                  <p class="muted">What's next — what's built, what's coming, and whether the timing
+                    works for your season.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="h3">Who it's for</h2>
+            <div class="who-chips mt-1">
+              <span class="chip chip-accent">Head coach</span>
+              <span class="chip chip-accent">Assistant</span>
+              <span class="chip chip-accent">Club board</span>
+              <span class="chip chip-accent">League official</span>
+              <span class="chip chip-accent">Meet director</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="row">
+              <span class="chip chip-good">20 minutes</span>
+              <span class="chip">Video or phone</span>
+              <span class="chip">No deck, no pitch</span>
+            </div>
+            <p class="muted mt-1">Would rather just email? Write to
+              <a href="mailto:cooper.pisani@gmail.com">cooper.pisani@gmail.com</a>.</p>
+          </div>
+        </div>
+
+        <!-- Right column: form -->
+        <div class="reveal reveal-right">
+          <form id="call-form" novalidate>
+            <div class="glass card">
+              <div class="form-grid">
+
+                <div class="field" data-field>
+                  <label for="cf-name">Your name</label>
+                  <input type="text" id="cf-name" name="name" required autocomplete="name">
+                  <p class="field-msg" role="alert"></p>
+                </div>
+
+                <div class="field" data-field>
+                  <label for="cf-email">Email</label>
+                  <input type="email" id="cf-email" name="email" required autocomplete="email">
+                  <p class="field-msg" role="alert"></p>
+                </div>
+
+                <div class="field" data-field>
+                  <label for="cf-program">Program / team</label>
+                  <input type="text" id="cf-program" name="program" required>
+                  <p class="field-msg" role="alert"></p>
+                </div>
+
+                <div class="field" data-field>
+                  <label for="cf-role">Your role</label>
+                  <select id="cf-role" name="role" required>
+                    <option value="">Choose one</option>
+                    <option>Head coach</option>
+                    <option>Assistant coach</option>
+                    <option>Club board / admin</option>
+                    <option>League official</option>
+                    <option>Meet director</option>
+                    <option>Swimmer or parent</option>
+                    <option>Other</option>
+                  </select>
+                  <p class="field-msg" role="alert"></p>
+                </div>
+
+                <div class="field" data-field>
+                  <label for="cf-swimmers">Roughly how many swimmers</label>
+                  <select id="cf-swimmers" name="swimmers">
+                    <option value="">Choose one</option>
+                    <option>Under 50</option>
+                    <option>50–150</option>
+                    <option>150–400</option>
+                    <option>400+</option>
+                    <option>Not sure</option>
+                  </select>
+                  <p class="field-msg" role="alert"></p>
+                </div>
+
+                <div class="field" data-field>
+                  <label for="cf-timing">Timing system</label>
+                  <select id="cf-timing" name="timing">
+                    <option value="">Choose one</option>
+                    <option>Colorado</option>
+                    <option>Daktronics</option>
+                    <option>Other</option>
+                    <option>None — we time by hand</option>
+                    <option>Not sure</option>
+                  </select>
+                  <p class="field-msg" role="alert"></p>
+                </div>
+
+                <div class="field" data-field>
+                  <label id="cf-availability-label">When works?</label>
+                  <div class="row" data-availability aria-labelledby="cf-availability-label">
+                    <button type="button" class="toggle-chip" data-value="Weekday morning" aria-pressed="false">Weekday morning</button>
+                    <button type="button" class="toggle-chip" data-value="Weekday afternoon" aria-pressed="false">Weekday afternoon</button>
+                    <button type="button" class="toggle-chip" data-value="Weekday evening" aria-pressed="false">Weekday evening</button>
+                    <button type="button" class="toggle-chip" data-value="Weekend morning" aria-pressed="false">Weekend morning</button>
+                    <button type="button" class="toggle-chip" data-value="Weekend afternoon" aria-pressed="false">Weekend afternoon</button>
+                  </div>
+                  <p class="field-hint">Pick at least one.</p>
+                  <p class="field-msg" role="alert"></p>
+                </div>
+
+                <div class="field" data-field>
+                  <label for="cf-timezone">Your time zone</label>
+                  <select id="cf-timezone" name="timezone">
+                    <option value="">Choose one</option>
+                    <option>Eastern</option>
+                    <option>Central</option>
+                    <option>Mountain</option>
+                    <option>Pacific</option>
+                    <option>Alaska</option>
+                    <option>Hawaii</option>
+                    <option>Other</option>
+                  </select>
+                  <p class="field-msg" role="alert"></p>
+                </div>
+
+                <div class="field" data-field>
+                  <label for="cf-notes">Anything you want to cover?</label>
+                  <textarea id="cf-notes" name="notes" rows="4"></textarea>
+                  <p class="field-msg" role="alert"></p>
+                </div>
+
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-live">Send the request</button>
+                <p class="faint mt-half">This form doesn't send anything on its own — it opens your
+                  email app with the message ready.</p>
+              </div>
+            </div>
+          </form>
+
+          <div id="call-success" class="glass-lg success-panel" hidden>
+            <h2 class="h3">Your email should be open.</h2>
+            <p class="muted">If it didn't open, copy the request below and send it yourself.</p>
+            <pre id="call-success-text" class="inset"></pre>
+            <div class="row">
+              <button type="button" class="btn btn-accent" data-copy-request>Copy the request instead</button>
+              <button type="button" class="btn btn-ghost" data-start-over>Start over</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section-tight">
+    <div class="wrap-narrow">
+      <p class="eyebrow center reveal">Questions</p>
+      <h2 class="h2 center balance reveal">Before you book</h2>
+      <div class="accordion mt-2 stagger">
+        <details class="accordion-item glass reveal">
+          <summary>Is it ready to use?</summary>
+          <div class="accordion-body">
+            <p class="muted">It's built and used on a real summer-league deck, but it's a
+              pre-release build — not yet a paid product. Current build is 0.0.D. The call is about
+              seeing it work, not signing anything.</p>
+          </div>
+        </details>
+        <details class="accordion-item glass reveal">
+          <summary>Does it work without a timing system?</summary>
+          <div class="accordion-body">
+            <p class="muted">Yes. Hit Start, then tap swimmers' names as they finish — each tap
+              assigns the next heat place. Heat place only, no times, no keyboard, no stopwatch.</p>
+          </div>
+        </details>
+        <details class="accordion-item glass reveal">
+          <summary>What about our timing system's results?</summary>
+          <div class="accordion-body">
+            <p class="muted">When you're connected to a timing system, it's the source of truth —
+              places and times come from it, and touchpad splits arrive on their own. Your job on
+              deck is tagging and notes.</p>
+          </div>
+        </details>
+        <details class="accordion-item glass reveal">
+          <summary>Does it cost anything?</summary>
+          <div class="accordion-body">
+            <p class="muted">Not decided yet. This isn't a paid product right now — the call is a
+              conversation about your program, not a sales pitch.</p>
+          </div>
+        </details>
+        <details class="accordion-item glass reveal">
+          <summary>Can our swimmers see it?</summary>
+          <div class="accordion-body">
+            <p class="muted">There's a swimmer-facing side in progress — pinning a swimmer's next
+              event, heat, and lane, plus their results so far. It's part of what's next, not this
+              build.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="brand mb-tight" href="index.html">
+          <svg width="24" height="24" viewBox="0 0 64 64" class="brand-mark" role="img" aria-hidden="true">
+        <title>Deck Buddy mark</title>
+        <rect x="2" y="2" width="60" height="60" rx="18" fill="#65d0eb"></rect>
+        <path d="M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+        <path d="M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+      </svg>
+          Deck Buddy
+        </a>
+        <p class="muted small">The paper meet sheet, replaced — same shape, every mark becomes data.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="features.html">Features</a>
+        <a href="demo.html">Demo</a>
+        <a href="call.html">Book a call</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:cooper.pisani@gmail.com">cooper.pisani@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Deck Buddy · Built on the deck, for the deck.</span>
+      <span class="version-chip mono">Version 0.0.D</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
