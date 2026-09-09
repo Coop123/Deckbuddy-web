@@ -7,9 +7,9 @@
 <meta name="description" content="Deck Buddy replaces the paper meet sheet at competitive swim meets. Same at-a-glance shape a coach already reads — but every mark becomes data.">
 <script>
 (function(){try{var t=localStorage.getItem('db-theme');
-if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
-document.documentElement.setAttribute('data-theme',t);}catch(e){
-document.documentElement.setAttribute('data-theme','light');}})();
+if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}
+else{document.documentElement.removeAttribute('data-theme');}
+}catch(e){}})();
 </script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2365d0eb'/%3E%3Cg fill='none' stroke='%230c1627' stroke-width='6.5' stroke-linecap='round'%3E%3Cpath d='M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3Cpath d='M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="stylesheet" href="site.css">
@@ -323,15 +323,10 @@ document.documentElement.setAttribute('data-theme','light');}})();
   <section class="section-tight">
     <div class="wrap">
       <p class="eyebrow center reveal">Timing modes</p>
-      <h2 class="h2 center balance reveal">Works with a timing system. Works without one.</h2>
+      <h2 class="h2 center balance reveal">Runs without a timing system today. With one, later.</h2>
       <div class="timing-grid mt-2">
-        <div class="card reveal reveal-left">
-          <h3 class="h3">Connected to a timing system</h3>
-          <p class="muted">The timing system is the source of truth. Places and times come from it, and
-            touchpad splits arrive on their own. Your job is tagging and notes — nothing to log by hand.</p>
-        </div>
         <div class="card reveal reveal-right">
-          <h3 class="h3">No timing system</h3>
+          <h3 class="h3">No timing system <span class="chip chip-accent">Working now</span></h3>
           <p class="muted">Hit Start, then tap swimmers' names as they finish. Each tap assigns the next
             heat place. Heat place only, no times. No keyboard, no stopwatch, no typing — you can do it
             while watching the water.</p>
@@ -340,6 +335,12 @@ document.documentElement.setAttribute('data-theme','light');}})();
             <li class="row"><span class="chip chip-accent">2</span> Tap each swimmer's name as they touch the wall.</li>
             <li class="row"><span class="chip chip-accent">3</span> The heat closes itself once every lane has a place.</li>
           </ol>
+        </div>
+        <div class="card reveal reveal-left">
+          <h3 class="h3">Connected to a timing system <span class="chip">Planned</span></h3>
+          <p class="muted">Deck Buddy can't talk to a timing system yet — it's a feature that comes later.
+            When it lands, the timing system becomes the source of truth: places and times come from it
+            and touchpad splits arrive on their own, leaving you with tagging and notes.</p>
         </div>
       </div>
     </div>

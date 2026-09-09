@@ -7,9 +7,9 @@
 <meta name="description" content="Watch the actual Deck Buddy build run a heat. The embed on this page always shows the latest published version.">
 <script>
 (function(){try{var t=localStorage.getItem('db-theme');
-if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
-document.documentElement.setAttribute('data-theme',t);}catch(e){
-document.documentElement.setAttribute('data-theme','light');}})();
+if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}
+else{document.documentElement.removeAttribute('data-theme');}
+}catch(e){}})();
 </script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2365d0eb'/%3E%3Cg fill='none' stroke='%230c1627' stroke-width='6.5' stroke-linecap='round'%3E%3Cpath d='M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3Cpath d='M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="stylesheet" href="site.css">
@@ -64,6 +64,17 @@ document.documentElement.setAttribute('data-theme','light');}})();
       <p class="lede center reveal">Below is the actual Deck Buddy artifact — not a screenshot, not a
         recording. It always shows the latest published version: when a new build ships, this page
         shows it without anyone touching this site.</p>
+
+      <div class="glass wip-banner reveal reveal-pop" role="note">
+        <p class="wip-tag"><span class="wip-dot" aria-hidden="true"></span>Work in progress</p>
+        <p class="wip-text"><strong>This is a prototype and it has not been tested at a live meet
+          yet.</strong> Expect rough edges, missing pieces, and things that move without warning.
+          Full testing is planned for <strong>late September</strong>, when version
+          <span class="mono">0.1.A</span> goes out with the coach and swimmer dashboards, the meet
+          sheet and notes.</p>
+        <p class="wip-text faint">There's no cost while it's in testing &mdash; pricing doesn't come
+          into effect until full integration.</p>
+      </div>
     </div>
   </section>
 
@@ -323,12 +334,12 @@ document.documentElement.setAttribute('data-theme','light');}})();
     <div class="wrap-narrow center">
       <p class="eyebrow reveal">Where this build stands</p>
       <h2 class="h2 center balance reveal">Honest about what's here — and what isn't.</h2>
-      <p class="lede center reveal">Current build is <span class="mono">0.0.D</span>. Built and used
-        on a real summer-league deck. Not yet a paid product — the call is a conversation, not a sales
-        pitch.</p>
+      <p class="lede center reveal">Current build is <span class="mono">0.0.D</span> &mdash; a working
+        prototype, not yet tested at a live meet. Full testing lands with <span class="mono">0.1.A</span>
+        in late September. Nothing costs anything until full integration.</p>
     </div>
     <div class="wrap mt-2">
-      <div class="inout-grid">
+      <div class="inout-grid roadmap-3">
         <div class="glass card reveal reveal-left">
           <h3 class="h3">In this build <span class="faint mono">0.0.D</span></h3>
           <ul class="mt-1">
@@ -336,20 +347,29 @@ document.documentElement.setAttribute('data-theme','light');}})();
             <li>Meet sheet</li>
             <li>Swimmer popover</li>
             <li>Tagging</li>
-            <li>Timing modes — connected and tap-to-place</li>
-            <li>Splits</li>
+            <li>Tap-to-place timing &mdash; no stopwatch, no keyboard</li>
+            <li>Splits, entered by hand</li>
             <li>DQ picker</li>
             <li>Team chips</li>
             <li>Light and dark themes</li>
           </ul>
         </div>
-        <div class="glass card reveal reveal-right">
-          <h3 class="h3">What's next</h3>
+        <div class="glass card reveal reveal-pop card-hl">
+          <h3 class="h3">Full testing <span class="faint mono">0.1.A</span> <span class="chip chip-accent">Late September</span></h3>
           <ul class="mt-1">
-            <li>Coach dashboards</li>
+            <li>Coach dashboard</li>
+            <li>Swimmer dashboard</li>
+            <li>Meet sheet</li>
+            <li>Notes</li>
+          </ul>
+        </div>
+        <div class="glass card reveal reveal-right">
+          <h3 class="h3">What's next after that</h3>
+          <ul class="mt-1">
+            <li>Timing-system connection &mdash; touchpad places, times and automatic splits</li>
             <li>Program and results imports</li>
             <li>Season persistence</li>
-            <li>Swimmer app</li>
+            <li>Swimmer app on phones</li>
           </ul>
         </div>
       </div>

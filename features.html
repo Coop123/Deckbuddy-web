@@ -7,9 +7,9 @@
 <meta name="description" content="Every piece of Deck Buddy: the deck, the meet sheet, timing modes, tagging, splits, scoring, statuses, imports, export, and the coach dashboard.">
 <script>
 (function(){try{var t=localStorage.getItem('db-theme');
-if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
-document.documentElement.setAttribute('data-theme',t);}catch(e){
-document.documentElement.setAttribute('data-theme','light');}})();
+if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}
+else{document.documentElement.removeAttribute('data-theme');}
+}catch(e){}})();
 </script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2365d0eb'/%3E%3Cg fill='none' stroke='%230c1627' stroke-width='6.5' stroke-linecap='round'%3E%3Cpath d='M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3Cpath d='M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="stylesheet" href="site.css">
@@ -224,21 +224,22 @@ document.documentElement.setAttribute('data-theme','light');}})();
       <div class="grid cols-2 align-center-grid">
         <div>
           <p class="eyebrow reveal reveal-left">Timing</p>
-          <h2 class="h2 balance reveal reveal-left">Two ways to get a time on the board.</h2>
-          <p class="lede reveal reveal-left">Whichever mode a meet runs in, whenever a result carries a
-            real time, Deck Buddy shows improvement against the seed automatically.</p>
+          <h2 class="h2 balance reveal reveal-left">Tap-to-place now. Timing systems later.</h2>
+          <p class="lede reveal reveal-left">Whenever a result carries a real time, Deck Buddy shows
+            improvement against the seed automatically — however that time got onto the board.</p>
         </div>
         <div class="stack reveal reveal-right">
           <div class="card">
-            <h3 class="h3">Connected</h3>
-            <p class="muted">The timing system is the source of truth. Places and times come from it,
-              and touchpad splits arrive on their own. The coach's job is tagging and notes.</p>
-          </div>
-          <div class="card">
-            <h3 class="h3">Not connected</h3>
+            <h3 class="h3">Not connected <span class="chip chip-accent">Working now</span></h3>
             <p class="muted">Hit Start, then tap swimmers' names as they finish. Each tap assigns the
               next heat place. Heat place only, no times. No keyboard, no stopwatch, no typing — a
               coach can do it while watching the water.</p>
+          </div>
+          <div class="card">
+            <h3 class="h3">Connected <span class="chip">Planned</span></h3>
+            <p class="muted">Reading a timing system isn't built yet. Once it is, the timing system
+              becomes the source of truth: places and times come from it, touchpad splits arrive on
+              their own, and the coach's job is tagging and notes.</p>
           </div>
         </div>
       </div>
@@ -288,10 +289,10 @@ document.documentElement.setAttribute('data-theme','light');}})();
       <div class="grid cols-2 align-center-grid">
         <div>
           <p class="eyebrow reveal reveal-left">Splits</p>
-          <h2 class="h2 balance reveal reveal-left">Automatic with touchpads. One tap without.</h2>
-          <p class="lede reveal reveal-left">With touchpads, splits arrive on their own. Without them,
-            a splits button opens a popup over the meet sheet — one button per home swimmer in the
-            heat. You tap as they hit the wall. Buttons only, no typing.</p>
+          <h2 class="h2 balance reveal reveal-left">One tap today. Automatic with touchpads later.</h2>
+          <p class="lede reveal reveal-left">A splits button opens a popup over the meet sheet — one
+            button per home swimmer in the heat. You tap as they hit the wall. Buttons only, no
+            typing. Once timing-system support lands, touchpad splits arrive on their own.</p>
         </div>
         <div class="card reveal reveal-right" aria-hidden="true">
           <p class="eyebrow">Splits — Heat 3</p>

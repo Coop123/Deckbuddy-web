@@ -53,44 +53,76 @@
     var btns = document.querySelectorAll("[data-theme-toggle]");
     if (!btns.length) return;
 
-    var sunIcon =
-      '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
-      'stroke-linecap="round" stroke-linejoin="round" role="img" aria-hidden="true">' +
-      '<circle cx="12" cy="12" r="4.2"></circle>' +
-      '<path d="M12 2.5v2.4M12 19.1v2.4M4.4 4.4l1.7 1.7M17.9 17.9l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.4 19.6l1.7-1.7M17.9 6.1l1.7-1.7"></path>' +
-      "</svg>";
-    var moonIcon =
-      '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
-      'stroke-linecap="round" stroke-linejoin="round" role="img" aria-hidden="true">' +
-      '<path d="M20.5 14.7A8.5 8.5 0 1 1 9.3 3.5a7 7 0 0 0 11.2 11.2z"></path>' +
-      "</svg>";
+    var icons = {
+      system:
+        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+        'stroke-linecap="round" stroke-linejoin="round" role="img" aria-hidden="true">' +
+        '<rect x="2.5" y="4" width="19" height="12.5" rx="2"></rect><path d="M8 20.5h8M12 16.5v4"></path></svg>',
+      light:
+        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+        'stroke-linecap="round" stroke-linejoin="round" role="img" aria-hidden="true">' +
+        '<circle cx="12" cy="12" r="4.2"></circle>' +
+        '<path d="M12 2.5v2.4M12 19.1v2.4M4.4 4.4l1.7 1.7M17.9 17.9l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.4 19.6l1.7-1.7M17.9 6.1l1.7-1.7"></path>' +
+        "</svg>",
+      dark:
+        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+        'stroke-linecap="round" stroke-linejoin="round" role="img" aria-hidden="true">' +
+        '<path d="M20.5 14.7A8.5 8.5 0 1 1 9.3 3.5a7 7 0 0 0 11.2 11.2z"></path></svg>'
+    };
 
-    function currentTheme() {
-      return document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
+    var order = ["system", "light", "dark"];
+    var labels = {
+      system: "Theme: following your device. Switch to light",
+      light: "Theme: light. Switch to dark",
+      dark: "Theme: dark. Follow your device"
+    };
+
+    var mq = null;
+    try { mq = window.matchMedia("(prefers-color-scheme: dark)"); } catch (e) { mq = null; }
+
+    function stored() {
+      var t = storageGet("db-theme");
+      return (t === "light" || t === "dark") ? t : "system";
     }
 
-    function paint() {
-      var t = currentTheme();
-      var icon = t === "dark" ? sunIcon : moonIcon;
-      var label = t === "dark" ? "Switch to light theme" : "Switch to dark theme";
-      for (var i = 0; i < btns.length; i++) {
-        btns[i].innerHTML = icon;
-        btns[i].setAttribute("aria-label", label);
-        btns[i].setAttribute("title", label);
+    /* Apply a mode: explicit modes set data-theme, system removes it so the
+       stylesheet's prefers-color-scheme block decides. */
+    function apply(mode) {
+      if (mode === "light" || mode === "dark") {
+        document.documentElement.setAttribute("data-theme", mode);
+      } else {
+        document.documentElement.removeAttribute("data-theme");
       }
     }
 
-    function toggle() {
-      var next = currentTheme() === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      storageSet("db-theme", next);
-      paint();
+    function paint() {
+      var mode = stored();
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].innerHTML = icons[mode] || icons.system;
+        btns[i].setAttribute("aria-label", labels[mode]);
+        btns[i].setAttribute("title", labels[mode]);
+      }
     }
 
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener("click", toggle);
-    }
+    apply(stored());
     paint();
+
+    /* Follow the OS live while in system mode. */
+    if (mq) {
+      var onChange = function () { if (stored() === "system") apply("system"); };
+      if (mq.addEventListener) mq.addEventListener("change", onChange);
+      else if (mq.addListener) mq.addListener(onChange);
+    }
+
+    for (var b = 0; b < btns.length; b++) {
+      btns[b].addEventListener("click", function () {
+        var next = order[(order.indexOf(stored()) + 1) % order.length];
+        if (next === "system") { storageSet("db-theme", "system"); }
+        else { storageSet("db-theme", next); }
+        apply(next);
+        paint();
+      });
+    }
   }
 
   /* ======================================================================

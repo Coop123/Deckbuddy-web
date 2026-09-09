@@ -826,3 +826,82 @@ body::before{
   .card, .kpi-tile, .number-tile, .accordion-item{ transition:none; }
   .card:hover, .kpi-tile:hover, .number-tile:hover{ transform:none; }
 }
+
+
+/* ==========================================================================
+   System theme ("follow my device")
+   When no data-theme attribute is set, the OS preference decides. These are
+   the same declarations as the [data-theme="dark"] rules above — keep in sync.
+   ========================================================================== */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme]){
+  color-scheme: dark;
+  --db-bg:#0a1220;
+  --db-bg-wash-1:rgba(45,105,178,.42);
+  --db-bg-wash-2:rgba(190,74,137,.32);
+  --db-bg-wash-3:rgba(12,22,38,.9);
+  --db-panel:rgba(20,31,50,.84);
+  --db-panel-quiet:rgba(20,31,50,.55);
+  --db-overlay:rgba(16,25,42,.94);
+  --db-panel-inset:rgba(30,44,68,.85);
+  --db-scrim:rgba(3,8,16,.58);
+  --db-ink:#eaf2fb;
+  --db-ink-soft:#a9bed6;
+  --db-ink-faint:#7189a5;
+  --db-line:rgba(233,241,250,.16);
+  --db-line-soft:rgba(233,241,250,.09);
+  --db-accent:#6fb2f2;
+  --db-accent-soft:rgba(111,178,242,.2);
+  --db-accent-ink:#b9dbff;
+  --db-live:#ff77bb;
+  --db-live-soft:rgba(255,119,187,.22);
+  --db-live-ink:#ffc2e0;
+  --db-good:#4fd39b;
+  --db-good-soft:rgba(79,211,155,.2);
+  --db-warn:#f0b354;
+  --db-warn-soft:rgba(240,179,84,.2);
+  --db-danger:#ff7a70;
+  --db-danger-soft:rgba(255,122,112,.2);
+  --db-shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 26px -14px rgba(0,0,0,.8);
+  --db-shadow-lg:0 2px 8px rgba(0,0,0,.5), 0 30px 64px -24px rgba(0,0,0,.9);
+
+  --db-sheen:rgba(255,255,255,.05);
+  --db-glass-edge:rgba(255,255,255,.10);
+  }
+}
+
+/* ---- Centering fixes -------------------------------------------------------
+   .eyebrow is an inline-block, so text-align on itself centres its text but
+   leaves the box at the left edge. Make the centred variant a real block.
+   Headings inside a centred band need auto side margins for the same reason. */
+.eyebrow.center{ display:block; width:100%; text-align:center; }
+.cta-band h1, .cta-band h2, .cta-band .h2, .cta-band .display{ margin-inline:auto; }
+
+/* =====================================================================
+   Work-in-progress notice + 3-up roadmap
+   ===================================================================== */
+.wip-banner{
+  max-width:46rem; margin:1.75rem auto 0; padding:1.15rem 1.35rem 1.25rem;
+  text-align:left; border-radius:22px;
+  border-left:3px solid var(--db-warn);
+  box-shadow: var(--db-shadow), 0 0 0 1px var(--db-warn-soft), 0 10px 34px -14px var(--db-warn-soft);
+}
+.wip-tag{
+  display:inline-flex; align-items:center; gap:.5rem; margin:0 0 .6rem;
+  font-size:.75rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--db-warn);
+}
+.wip-dot{
+  width:.5rem; height:.5rem; border-radius:999px; background:var(--db-warn); flex:none;
+  box-shadow:0 0 0 4px var(--db-warn-soft);
+  animation: wip-pulse 2.4s ease-in-out infinite;
+}
+@keyframes wip-pulse{ 0%,100%{opacity:1} 50%{opacity:.4} }
+.wip-text{ margin:0; max-width:none; font-size:.9375rem; line-height:1.6; }
+.wip-text + .wip-text{ margin-top:.6rem; }
+@media (prefers-reduced-motion: reduce){ .wip-dot{ animation:none } }
+
+@media (min-width:960px){
+  .inout-grid.roadmap-3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+.inout-grid .chip{ vertical-align:middle; margin-left:.35rem; font-size:.6875rem; }
