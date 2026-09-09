@@ -683,7 +683,7 @@
       if (values.timezone) lines.push("Time zone: " + values.timezone);
       if (values.notes) lines.push("Notes: " + values.notes);
       lines.push("");
-      lines.push("Sent from the Deck Buddy site");
+      lines.push("Sent from deckbuddy.app");
       return lines.join("\n");
     }
 
@@ -798,7 +798,7 @@
       var bodyText = buildBody(values, availability);
       var subject = "Deck Buddy demo call — " + values.name + ", " + values.program;
       var mailto =
-        "mailto:cooper.pisani@gmail.com" +
+        "mailto:cpisani@deckbuddy.app" +
         "?subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(bodyText);
 
