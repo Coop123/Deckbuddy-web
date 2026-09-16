@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recent updates — Deck Buddy</title>
+<meta name="description" content="What's shipped in Deck Buddy so far, what's in the current build, and what's coming next.">
+<script>
+(function(){try{var t=localStorage.getItem('db-theme');
+if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}
+else{document.documentElement.removeAttribute('data-theme');}
+}catch(e){}})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2365d0eb'/%3E%3Cg fill='none' stroke='%230c1627' stroke-width='6.5' stroke-linecap='round'%3E%3Cpath d='M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3Cpath d='M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script src="site.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <svg width="30" height="30" viewBox="0 0 64 64" class="brand-mark" role="img" aria-hidden="true">
+        <title>Deck Buddy mark</title>
+        <rect x="2" y="2" width="60" height="60" rx="18" fill="#65d0eb"></rect>
+        <path d="M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+        <path d="M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+      </svg>
+      Deck Buddy
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="features.html">Features</a>
+      <a class="nav-link" href="demo.html">Demo</a>
+      <a class="nav-link is-active" href="updates.html">Updates</a>
+      <a class="btn btn-live" href="call.html">Book a call</a>
+      <button type="button" class="icon-btn" data-theme-toggle aria-label="Switch theme"></button>
+    </nav>
+    <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" role="img" aria-hidden="true">
+        <title>Menu</title>
+        <path d="M3 6h18M3 12h18M3 18h18"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="nav-drawer" id="nav-drawer">
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="features.html">Features</a>
+    <a class="nav-link" href="demo.html">Demo</a>
+    <a class="nav-link is-active" href="updates.html">Updates</a>
+    <a class="btn btn-live" href="call.html">Book a call</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ Hero ============ -->
+  <section class="section-tight hero">
+    <span class="float-a" aria-hidden="true"></span>
+    <span class="float-b" aria-hidden="true"></span>
+    <div class="wrap-narrow center" style="position:relative;z-index:1">
+      <p class="eyebrow reveal">Built in the open</p>
+      <h1 class="display balance center reveal">Recent updates.</h1>
+      <p class="lede center reveal">Deck Buddy is still a work in progress. This page tracks what's
+        shipped in the current build, and what's coming next &mdash; updated every time a new dev
+        release goes out.</p>
+    </div>
+  </section>
+
+  <!-- ============ Changelog ============ -->
+  <section class="section">
+    <div class="wrap" style="max-width:720px;margin-inline:auto;display:flex;flex-direction:column;gap:1.5rem">
+
+      <div class="glass card reveal reveal-pop card-hl">
+        <div class="row" style="justify-content:space-between">
+          <h3 class="h3">Current build <span class="faint mono">0.0.M</span></h3>
+          <span class="chip chip-accent">Latest</span>
+        </div>
+        <p class="muted small mt-half">September 15, 2026</p>
+        <ul class="mt-1">
+          <li>On deck, In the water and Previous are all visible at once on the coach deck &mdash; no
+            more collapsing between them mid-heat.</li>
+          <li>Scratches and no-shows are tracked separately: a planned scratch shows "X", an
+            unscratched no-show shows "NS" &mdash; both excluded from placing and scoring.</li>
+          <li>Results imports merge finals straight onto a loaded meet program by event and name, or
+            load as a standalone meet from just the results sheet.</li>
+          <li>Season &amp; League stats: high points and improvement% by age group, filterable by
+            team, gender and age group.</li>
+          <li>Time trials added as their own meet type &mdash; no points or places, excluded from
+            improvement%.</li>
+        </ul>
+      </div>
+
+      <div class="glass card reveal reveal-pop">
+        <div class="row" style="justify-content:space-between">
+          <h3 class="h3">Marketing site launched</h3>
+        </div>
+        <p class="muted small mt-half">September 9, 2026</p>
+        <ul class="mt-1">
+          <li>deckbuddy.app went live with Features, Demo and Book-a-call pages.</li>
+          <li>Positioning made explicit site-wide: this is a prototype, not yet tested at a live
+            meet, and nothing costs anything until full integration.</li>
+        </ul>
+      </div>
+
+      <div class="glass card reveal reveal-pop">
+        <div class="row" style="justify-content:space-between">
+          <h3 class="h3">Full testing <span class="faint mono">0.1.A</span></h3>
+          <span class="chip">Planned &mdash; late September</span>
+        </div>
+        <ul class="mt-1">
+          <li>Coach dashboard</li>
+          <li>Swimmer dashboard</li>
+          <li>Meet sheet</li>
+          <li>Notes</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ Everything so far ============ -->
+  <section class="section-tight">
+    <div class="wrap-narrow center">
+      <p class="eyebrow reveal">The full picture</p>
+      <h2 class="h2 center balance reveal">Everything in the build so far.</h2>
+    </div>
+    <div class="wrap mt-2">
+      <div class="glass card reveal reveal-pop" style="max-width:640px;margin-inline:auto">
+        <div class="inout-grid">
+          <ul>
+            <li>Coach deck</li>
+            <li>Meet sheet</li>
+            <li>Swimmer popover</li>
+            <li>Tagging</li>
+            <li>Tap-to-place timing &mdash; no stopwatch, no keyboard</li>
+            <li>Splits, entered by hand</li>
+            <li>DQ picker with exact USA Swimming codes</li>
+            <li>Team chips</li>
+            <li>Season &amp; League stats</li>
+            <li>Light and dark themes</li>
+          </ul>
+        </div>
+        <p class="faint mt-1">Want the full breakdown of how each of these works?
+          <a href="features.html">See all the features &rarr;</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA band ============ -->
+  <section class="section-tight">
+    <div class="wrap">
+      <div class="glass-lg cta-band reveal reveal-pop">
+        <h2 class="h2 balance">Want to see it run a meet?</h2>
+        <div class="cta-actions">
+          <a class="btn btn-accent" href="demo.html">See the live demo</a>
+          <a class="btn btn-ghost" href="call.html">Book a call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="brand mb-tight" href="index.html">
+          <svg width="24" height="24" viewBox="0 0 64 64" class="brand-mark" role="img" aria-hidden="true">
+        <title>Deck Buddy mark</title>
+        <rect x="2" y="2" width="60" height="60" rx="18" fill="#65d0eb"></rect>
+        <path d="M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+        <path d="M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+      </svg>
+          Deck Buddy
+        </a>
+        <p class="muted small">The paper meet sheet, replaced — same shape, every mark becomes data.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="features.html">Features</a>
+        <a href="demo.html">Demo</a>
+        <a href="updates.html">Updates</a>
+        <a href="call.html">Book a call</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:cpisani@deckbuddy.app">cpisani@deckbuddy.app</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Deck Buddy · Built on the deck, for the deck.</span>
+      <a class="version-chip mono" href="updates.html">Version 0.0.M</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

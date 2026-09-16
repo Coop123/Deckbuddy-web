@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Live demo — Deck Buddy</title>
-<meta name="description" content="Watch the actual Deck Buddy build run a heat. The embed on this page always shows the latest published version.">
+<meta name="description" content="An animated walkthrough of Deck Buddy's coach-deck flow — tap-to-place timing, tagging, and the meet sheet, in action.">
 <script>
 (function(){try{var t=localStorage.getItem('db-theme');
 if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}
@@ -34,6 +34,7 @@ else{document.documentElement.removeAttribute('data-theme');}
       <a class="nav-link" href="index.html">Home</a>
       <a class="nav-link" href="features.html">Features</a>
       <a class="nav-link is-active" href="demo.html">Demo</a>
+    <a class="nav-link" href="updates.html">Updates</a>
       <a class="btn btn-live" href="call.html">Book a call</a>
       <button type="button" class="icon-btn" data-theme-toggle aria-label="Switch theme"></button>
     </nav>
@@ -48,6 +49,7 @@ else{document.documentElement.removeAttribute('data-theme');}
     <a class="nav-link" href="index.html">Home</a>
     <a class="nav-link" href="features.html">Features</a>
     <a class="nav-link is-active" href="demo.html">Demo</a>
+    <a class="nav-link" href="updates.html">Updates</a>
     <a class="btn btn-live" href="call.html">Book a call</a>
   </div>
 </header>
@@ -59,11 +61,11 @@ else{document.documentElement.removeAttribute('data-theme');}
     <span class="float-a" aria-hidden="true"></span>
     <span class="float-b" aria-hidden="true"></span>
     <div class="wrap-narrow center" style="position:relative;z-index:1">
-      <p class="eyebrow reveal">Live demo</p>
-      <h1 class="display balance center reveal">The real build, live.</h1>
-      <p class="lede center reveal">Below is the actual Deck Buddy artifact — not a screenshot, not a
-        recording. It always shows the latest published version: when a new build ships, this page
-        shows it without anyone touching this site.</p>
+      <p class="eyebrow reveal">Product demo</p>
+      <h1 class="display balance center reveal">See it run a heat.</h1>
+      <p class="lede center reveal">An animated walkthrough of the actual coach-deck flow — built from
+        the same shapes as the real app, safe to load anywhere, no sign-in needed. Want to see the
+        real build in person? <a href="call.html">book a call</a>.</p>
 
       <div class="glass wip-banner reveal reveal-pop" role="note">
         <p class="wip-tag"><span class="wip-dot" aria-hidden="true"></span>Work in progress</p>
@@ -84,7 +86,7 @@ else{document.documentElement.removeAttribute('data-theme');}
       <p class="eyebrow reveal">Always works</p>
       <h2 class="h2 center balance reveal">An animated preview, no sign-in needed.</h2>
       <p class="lede center reveal">This is a fake screen built from the same shapes as the real app —
-        safe to load anywhere, no network required. The actual build is below it.</p>
+        safe to load anywhere, no network required.</p>
     </div>
     <div class="wrap mt-2">
       <div class="reveal reveal-pop" style="max-width:560px;margin-inline:auto">
@@ -252,46 +254,7 @@ else{document.documentElement.removeAttribute('data-theme');}
         </div>
         <p class="visually-hidden" id="deck-mock-desc">Animated preview of the Deck Buddy coach screen: on the left, the heat racing now and the heat that just finished; on the right, the full meet sheet with the current heat highlighted. Places fill in as swimmers finish, then the heat rolls into Previous and the sheet advances to the next event.</p>
       </div>
-      <p class="faint center mt-1">Illustrative — sample swimmers, sample data. The build below is the real thing.</p>
-    </div>
-  </section>
-
-  <!-- ============ Live embed ============ -->
-  <section class="section" id="live-build">
-    <div class="wrap-narrow center">
-      <p class="eyebrow reveal">The real thing</p>
-      <h2 class="h2 center balance reveal">This is the actual build.</h2>
-      <p class="lede center reveal">A live embed of the current Deck Buddy artifact. If your browser
-        or claude.ai blocks the frame, open it directly with the button below — same build, nothing
-        missing.</p>
-    </div>
-
-    <div class="wrap mt-2">
-      <div class="glass-lg demo-stage reveal reveal-pop" data-demo-stage>
-        <div class="browser-bar">
-          <span class="browser-dots" aria-hidden="true">
-            <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
-          </span>
-          <span class="browser-url mono">claude.ai/code/artifact/7499744e-0c47-4fda-8e9d-6dd3a7aa98cf</span>
-        </div>
-        <div class="demo-frame-wrap">
-          <div class="demo-fallback">
-            <p class="h3">Open the live build in its own tab.</p>
-            <p class="muted">claude.ai blocks being shown inside another page, so the reliable way in is
-              a direct link. Same build, nothing missing.</p>
-            <div class="row" style="justify-content:center">
-              <a class="btn btn-accent" href="https://claude.ai/code/artifact/7499744e-0c47-4fda-8e9d-6dd3a7aa98cf" target="_blank" rel="noopener">Open the live build &#8599;</a>
-              <button type="button" class="btn btn-ghost" data-demo-reload>Try loading it here</button>
-            </div>
-          </div>
-          <iframe class="demo-frame" title="Deck Buddy live build" loading="lazy" hidden
-            data-src="https://claude.ai/code/artifact/7499744e-0c47-4fda-8e9d-6dd3a7aa98cf"
-            referrerpolicy="no-referrer-when-downgrade"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
-            style="width:100%;aspect-ratio:4/3;min-height:520px;border:0;border-radius:16px"></iframe>
-        </div>
-      </div>
-      <p class="faint center mt-half">Sign-in may be required — the demo is a private build. Whatever version is published there is what you get; this page is never edited to keep up.</p>
+      <p class="faint center mt-1">Illustrative — sample swimmers, sample data.</p>
     </div>
   </section>
 
@@ -334,14 +297,14 @@ else{document.documentElement.removeAttribute('data-theme');}
     <div class="wrap-narrow center">
       <p class="eyebrow reveal">Where this build stands</p>
       <h2 class="h2 center balance reveal">Honest about what's here — and what isn't.</h2>
-      <p class="lede center reveal">Current build is <span class="mono">0.0.D</span> &mdash; a working
+      <p class="lede center reveal">Current build is <span class="mono">0.0.M</span> &mdash; a working
         prototype, not yet tested at a live meet. Full testing lands with <span class="mono">0.1.A</span>
         in late September. Nothing costs anything until full integration.</p>
     </div>
     <div class="wrap mt-2">
       <div class="inout-grid roadmap-3">
         <div class="glass card reveal reveal-left">
-          <h3 class="h3">In this build <span class="faint mono">0.0.D</span></h3>
+          <h3 class="h3">In this build <span class="faint mono">0.0.M</span></h3>
           <ul class="mt-1">
             <li>Coach deck</li>
             <li>Meet sheet</li>
@@ -410,6 +373,7 @@ else{document.documentElement.removeAttribute('data-theme');}
         <h4>Product</h4>
         <a href="features.html">Features</a>
         <a href="demo.html">Demo</a>
+        <a href="updates.html">Updates</a>
         <a href="call.html">Book a call</a>
       </div>
       <div class="footer-col">
@@ -419,7 +383,7 @@ else{document.documentElement.removeAttribute('data-theme');}
     </div>
     <div class="footer-bottom">
       <span>© 2026 Deck Buddy · Built on the deck, for the deck.</span>
-      <span class="version-chip mono">Version 0.0.D</span>
+      <a class="version-chip mono" href="updates.html">Version 0.0.M</a>
     </div>
   </div>
 </footer>
