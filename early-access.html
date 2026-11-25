@@ -104,16 +104,16 @@ else{document.documentElement.removeAttribute('data-theme');}
               <legend>About you</legend>
               <p class="muted small section-hint">So we know who's testing and how to reach you.</p>
               <div class="form-grid two-col">
-                <div class="field"><label for="ea-name">Name <span class="req">*</span></label><input id="ea-name" type="text" autocomplete="name" required></div>
-                <div class="field"><label for="ea-email">Email <span class="req">*</span></label><input id="ea-email" type="email" autocomplete="email" required></div>
+                <div class="field"><label for="ea-name">Name <span class="req">*</span></label><input id="ea-name" name="fi-sender-fullName" type="text" autocomplete="name" required></div>
+                <div class="field"><label for="ea-email">Email <span class="req">*</span></label><input id="ea-email" name="fi-sender-email" type="email" autocomplete="email" required></div>
               </div>
               <p class="ea-err" id="ea-err-contact" aria-live="polite"></p>
               <span class="ea-label" id="ea-role-label">Your role <span class="req">*</span></span>
               <div class="who-chips" data-group="role" data-single role="group" aria-labelledby="ea-role-label"></div>
               <p class="ea-err" id="ea-err-role" aria-live="polite"></p>
               <div class="form-grid two-col" style="margin-top:.5rem">
-                <div class="field"><label for="ea-team">Team or club</label><input id="ea-team" type="text" placeholder="e.g. Belwood Dolphins"></div>
-                <div class="field"><label for="ea-league">League or region</label><input id="ea-league" type="text" placeholder="e.g. summer league, high school"></div>
+                <div class="field"><label for="ea-team">Team or club</label><input id="ea-team" name="fi-text-team" type="text" placeholder="e.g. Belwood Dolphins"></div>
+                <div class="field"><label for="ea-league">League or region</label><input id="ea-league" name="fi-text-league" type="text" placeholder="e.g. summer league, high school"></div>
               </div>
             </fieldset>
 
@@ -122,9 +122,9 @@ else{document.documentElement.removeAttribute('data-theme');}
               <p class="muted small section-hint">So we test against how you actually run a deck.</p>
               <div class="form-grid two-col">
                 <div class="field"><label for="ea-size">Swimmers on the roster</label>
-                  <select id="ea-size"><option value="">Choose one</option><option>Under 25</option><option>25–60</option><option>60–120</option><option>120+</option></select></div>
+                  <select id="ea-size" name="fi-select-roster_size"><option value="">Choose one</option><option>Under 25</option><option>25–60</option><option>60–120</option><option>120+</option></select></div>
                 <div class="field"><label for="ea-meets">Meets per season</label>
-                  <select id="ea-meets"><option value="">Choose one</option><option>1–3</option><option>4–8</option><option>9+</option></select></div>
+                  <select id="ea-meets" name="fi-select-meets_per_season"><option value="">Choose one</option><option>1–3</option><option>4–8</option><option>9+</option></select></div>
               </div>
               <span class="ea-label" id="ea-now-label">How you track meets now</span>
               <div class="who-chips" data-group="now" role="group" aria-labelledby="ea-now-label"></div>
@@ -137,14 +137,14 @@ else{document.documentElement.removeAttribute('data-theme');}
               <p class="muted small section-hint">Pick any. You'll get the parts you care about first.</p>
               <div class="who-chips" data-group="features" role="group" aria-label="Features to try"></div>
               <div class="field" style="margin-top:1.1rem"><label for="ea-pain">The worst part of meet day right now</label>
-                <textarea id="ea-pain" maxlength="2000" placeholder="Lost sheets, splits nobody wrote down, relay cards…"></textarea></div>
+                <textarea id="ea-pain" name="fi-text-pain_point" maxlength="2000" placeholder="Lost sheets, splits nobody wrote down, relay cards…"></textarea></div>
             </fieldset>
 
             <fieldset style="margin-bottom:1.25rem">
               <legend>Testing</legend>
-              <div class="ea-check"><input type="checkbox" id="ea-call"><label for="ea-call">I'm open to a 20–40 min call with Cooper to walk through a build and give feedback.</label></div>
-              <div class="ea-check"><input type="checkbox" id="ea-understand"><label for="ea-understand">I understand Deck Buddy is unfinished test software, so I'll keep a paper backup at real meets. <span class="req">*</span></label></div>
-              <div class="ea-check"><input type="checkbox" id="ea-age"><label for="ea-age">I'm 18 or older, or a parent or guardian has said it's OK for me to sign up. <span class="req">*</span></label></div>
+              <div class="ea-check"><input type="checkbox" id="ea-call" name="fi-checkbox-open_to_call" value="yes"><label for="ea-call">I'm open to a 20–40 min call with Cooper to walk through a build and give feedback.</label></div>
+              <div class="ea-check"><input type="checkbox" id="ea-understand" name="fi-checkbox-understands_test_software" value="yes"><label for="ea-understand">I understand Deck Buddy is unfinished test software, so I'll keep a paper backup at real meets. <span class="req">*</span></label></div>
+              <div class="ea-check"><input type="checkbox" id="ea-age" name="fi-checkbox-age_ok" value="yes"><label for="ea-age">I'm 18 or older, or a parent or guardian has said it's OK for me to sign up. <span class="req">*</span></label></div>
               <p class="ea-err" id="ea-err-agree" aria-live="polite"></p>
             </fieldset>
 
@@ -231,11 +231,27 @@ else{document.documentElement.removeAttribute('data-theme');}
   </div>
 </footer>
 
+<script src="https://forminit.com/sdk/v1/forminit.js"></script>
 <script>
 (function(){
-  /* Sign-ups are emailed to Cooper through FormSubmit (formsubmit.co).
-     The first sign-up triggers a one-time activation email to this address. */
-  var ENDPOINT = "https://formsubmit.co/ajax/cpisani@deckbuddy.app";
+  // Forminit form: inputs are named fi-{type}-{name}. Rules: https://forminit.com/setup.md
+  var FORM_ID = "cm9ss05jerk";
+  // One message per field Forminit validates. Keys are Forminit's field names:
+  // sender.<name> for fi-sender-*, else the {name} of fi-{type}-{name}.
+  var FIELD_ERRORS = {
+    "sender.fullName": "Please use only letters, spaces, hyphens, apostrophes and periods in your name.",
+    "sender.email": "Please enter a valid email address."
+  };
+  // Forminit names the failing field in error.fieldName or, today, as the first quoted word of error.message
+  function fieldError(error){
+    var field = (error && error.fieldName) || ((/['"]([^'"]+)['"]/.exec((error && error.message) || "") || [])[1]);
+    if (field && FIELD_ERRORS[field]) return FIELD_ERRORS[field];
+    if (error && error.error === "TOO_MANY_REQUESTS") return "Please wait a few seconds and try again.";
+    return null;
+  }
+  // Chip groups are buttons, not inputs, so they are added to the FormData by hand.
+  var CHIP_FIELDS = { role: "fi-radio-role", now: "fi-checkbox-tracking_method[]", device: "fi-checkbox-devices[]", features: "fi-checkbox-features[]" };
+  var forminit = null, sending = false;
   var OPTS = {
     role: ["Head coach","Assistant coach","Swimmer","Parent","Meet director","Other"],
     now: ["Paper meet sheets","Spreadsheet","Meet Manager / Hy-Tek","Team app","Memory and hope"],
@@ -301,23 +317,35 @@ else{document.documentElement.removeAttribute('data-theme');}
     done.scrollIntoView({behavior:"smooth", block:"start"});
   };
 
-  form.addEventListener("submit", function(e){
+  form.addEventListener("submit", async function(e){
     e.preventDefault();
+    if (sending) return;
     var d = read();
     if (!validate(d)){ var f = form.querySelector(".ea-err:not(:empty)"); if (f) f.scrollIntoView({block:"center"}); return; }
     last = d;
-    var btn = $("ea-submit"); btn.disabled = true; $("ea-status").textContent = "Sending…";
-    var payload = {
-      _subject: "Deck Buddy early access: " + d.name, _template: "table", _captcha: "false", _replyto: d.email,
-      Name: d.name, Email: d.email, Role: d.role, Team: d.team, League: d.league,
-      "Roster size": d.size, "Meets per season": d.meets, "Tracks meets with": d.now.join(", "),
-      Devices: d.device.join(", "), "Wants to try": d.features.join(", "),
-      "Worst part of meet day": d.pain, "Open to a call": d.call ? "Yes" : "No"
-    };
-    fetch(ENDPOINT, { method:"POST", headers:{ "Content-Type":"application/json", "Accept":"application/json" }, body: JSON.stringify(payload) })
-      .then(function(r){ return r.json().then(function(j){ return r.ok && String(j.success) === "true"; }, function(){ return false; }); })
-      .catch(function(){ return false; })
-      .then(function(sent){ btn.disabled = false; $("ea-status").textContent = ""; show(sent, d); });
+    var fd = new FormData(form); // before anything is disabled
+    for (var key in CHIP_FIELDS) picked(key).forEach(function(v){ fd.append(CHIP_FIELDS[key], v); });
+    var nm = fd.get("fi-sender-fullName");
+    if (typeof nm === "string") fd.set("fi-sender-fullName", nm.replace(/[\u2018\u2019]/g, "'"));
+    var btn = $("ea-submit"), status = $("ea-status");
+    status.textContent = "Sending…";
+    sending = true;
+    btn.disabled = true;
+    var sent = false, stay = null;
+    try {
+      if (!forminit) forminit = new Forminit();
+      var res = await forminit.submit(FORM_ID, fd);
+      if (res && !res.error && res.data && typeof res.data.hashId === "string") sent = true;
+      else { console.error("Forminit:", (res && (res.error || res.data)) || res); stay = fieldError(res && res.error); }
+    } catch (err) {
+      console.error("Forminit:", err);
+    } finally {
+      sending = false;
+      btn.disabled = false;
+    }
+    if (stay) { status.textContent = stay; return; } // keep the visitor's input and let them fix it
+    status.textContent = "";
+    show(sent, d);
   });
 
   $("ea-edit").addEventListener("click", function(){ done.hidden = true; form.hidden = false; form.scrollIntoView({block:"start"}); });
