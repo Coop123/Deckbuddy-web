@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Early access — Deck Buddy</title>
+<meta name="description" content="Sign up to test Deck Buddy, the app that replaces paper swim meet sheets. Free while testing.">
+<script>
+(function(){try{var t=localStorage.getItem('db-theme');
+if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}
+else{document.documentElement.removeAttribute('data-theme');}
+}catch(e){}})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2365d0eb'/%3E%3Cg fill='none' stroke='%230c1627' stroke-width='6.5' stroke-linecap='round'%3E%3Cpath d='M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3Cpath d='M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="stylesheet" href="site.css">
+<script src="site.js" defer></script>
+<style>
+  .ea-grid{display:grid;gap:clamp(1.5rem,3.5vw,2.5rem);grid-template-columns:minmax(0,1fr);align-items:start}
+  @media (min-width:1040px){.ea-grid{grid-template-columns:minmax(0,1fr) minmax(0,19rem)}.ea-aside{position:sticky;top:6rem}}
+  .ea-form{padding:clamp(1.25rem,3.5vw,2.25rem)}
+  .ea-form fieldset{border:0;margin:0 0 2rem;padding:0;min-width:0}
+  .ea-form legend{font-size:1.35rem;font-weight:800;letter-spacing:-.01em;padding:0;margin-bottom:.25rem}
+  .ea-form .section-hint{margin:0 0 1rem}
+  .ea-label{font-size:.875rem;font-weight:700;color:var(--db-ink-soft);margin:1rem 0 .5rem;display:block}
+  .req{color:var(--db-live)}
+  .ea-check{display:flex;gap:.75rem;align-items:flex-start;padding:.85rem 0;border-top:1px solid var(--db-line-soft);font-size:.95rem}
+  .ea-check input{width:22px;height:22px;margin:.1rem 0 0;flex:none;accent-color:var(--db-accent)}
+  .ea-err{color:var(--db-danger);font-size:.85rem;min-height:1.1em;margin:.35rem 0 0}
+  .toggle-chip:focus-visible,.ea-check input:focus-visible{outline:2px solid var(--db-accent);outline-offset:2px}
+  .ea-actions{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+  .ea-facts{display:grid;gap:.6rem;margin-top:1rem}
+  .ea-facts p{margin:0;font-size:.95rem}
+  .ea-done{text-align:center}
+  .ea-done .tick{width:64px;height:64px;margin:0 auto 1rem;display:block}
+  @media (prefers-reduced-motion:no-preference){.ea-done:not([hidden]) .tick{animation:ea-pop .45s ease-out both}}
+  @keyframes ea-pop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html">
+      <svg width="30" height="30" viewBox="0 0 64 64" class="brand-mark" role="img" aria-hidden="true">
+        <title>Deck Buddy mark</title>
+        <rect x="2" y="2" width="60" height="60" rx="18" fill="#65d0eb"></rect>
+        <path d="M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+        <path d="M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+      </svg>
+      Deck Buddy
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="features.html">Features</a>
+      <a class="nav-link" href="demo.html">Demo</a>
+    <a class="nav-link" href="updates.html">Updates</a>
+      <a class="nav-link" href="call.html">Book a call</a>
+      <a class="btn btn-live" href="early-access.html">Early access</a>
+      <button type="button" class="icon-btn" data-theme-toggle aria-label="Switch theme"></button>
+    </nav>
+    <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" role="img" aria-hidden="true">
+        <title>Menu</title>
+        <path d="M3 6h18M3 12h18M3 18h18"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="nav-drawer" id="nav-drawer">
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link" href="features.html">Features</a>
+    <a class="nav-link" href="demo.html">Demo</a>
+    <a class="nav-link" href="updates.html">Updates</a>
+    <a class="nav-link" href="call.html">Book a call</a>
+    <a class="btn btn-live" href="early-access.html">Early access</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="section-tight" style="position:relative;overflow:hidden;padding-top:clamp(2.5rem,6vw,4rem)">
+    <span class="float-a" aria-hidden="true"></span>
+    <span class="float-b" aria-hidden="true"></span>
+    <div class="wrap">
+      <p class="eyebrow center reveal">Early access</p>
+      <h1 class="display center balance reveal" style="max-width:20ch;margin-inline:auto">Help test Deck Buddy before anyone else.</h1>
+      <p class="lede center reveal" style="margin:1rem auto 0">
+        Deck Buddy is a work in progress and hasn't been run at a live meet yet. Sign up to try the
+        test builds and tell us what breaks. It's free while testing.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-tight" style="padding-top:0">
+    <div class="wrap">
+      <div class="ea-grid">
+
+        <div>
+          <form class="glass-lg ea-form reveal" id="ea-form" novalidate>
+            <fieldset>
+              <legend>About you</legend>
+              <p class="muted small section-hint">So we know who's testing and how to reach you.</p>
+              <div class="form-grid two-col">
+                <div class="field"><label for="ea-name">Name <span class="req">*</span></label><input id="ea-name" type="text" autocomplete="name" required></div>
+                <div class="field"><label for="ea-email">Email <span class="req">*</span></label><input id="ea-email" type="email" autocomplete="email" required></div>
+              </div>
+              <p class="ea-err" id="ea-err-contact" aria-live="polite"></p>
+              <span class="ea-label" id="ea-role-label">Your role <span class="req">*</span></span>
+              <div class="who-chips" data-group="role" data-single role="group" aria-labelledby="ea-role-label"></div>
+              <p class="ea-err" id="ea-err-role" aria-live="polite"></p>
+              <div class="form-grid two-col" style="margin-top:.5rem">
+                <div class="field"><label for="ea-team">Team or club</label><input id="ea-team" type="text" placeholder="e.g. Belwood Dolphins"></div>
+                <div class="field"><label for="ea-league">League or region</label><input id="ea-league" type="text" placeholder="e.g. summer league, high school"></div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Your meets today</legend>
+              <p class="muted small section-hint">So we test against how you actually run a deck.</p>
+              <div class="form-grid two-col">
+                <div class="field"><label for="ea-size">Swimmers on the roster</label>
+                  <select id="ea-size"><option value="">Choose one</option><option>Under 25</option><option>25–60</option><option>60–120</option><option>120+</option></select></div>
+                <div class="field"><label for="ea-meets">Meets per season</label>
+                  <select id="ea-meets"><option value="">Choose one</option><option>1–3</option><option>4–8</option><option>9+</option></select></div>
+              </div>
+              <span class="ea-label" id="ea-now-label">How you track meets now</span>
+              <div class="who-chips" data-group="now" role="group" aria-labelledby="ea-now-label"></div>
+              <span class="ea-label" id="ea-device-label">Devices you'd test on</span>
+              <div class="who-chips" data-group="device" role="group" aria-labelledby="ea-device-label"></div>
+            </fieldset>
+
+            <fieldset>
+              <legend>What you want to try</legend>
+              <p class="muted small section-hint">Pick any. You'll get the parts you care about first.</p>
+              <div class="who-chips" data-group="features" role="group" aria-label="Features to try"></div>
+              <div class="field" style="margin-top:1.1rem"><label for="ea-pain">The worst part of meet day right now</label>
+                <textarea id="ea-pain" maxlength="2000" placeholder="Lost sheets, splits nobody wrote down, relay cards…"></textarea></div>
+            </fieldset>
+
+            <fieldset style="margin-bottom:1.25rem">
+              <legend>Testing</legend>
+              <div class="ea-check"><input type="checkbox" id="ea-call"><label for="ea-call">I'm open to a 20–40 min call with Cooper to walk through a build and give feedback.</label></div>
+              <div class="ea-check"><input type="checkbox" id="ea-understand"><label for="ea-understand">I understand Deck Buddy is unfinished test software, so I'll keep a paper backup at real meets. <span class="req">*</span></label></div>
+              <div class="ea-check"><input type="checkbox" id="ea-age"><label for="ea-age">I'm 18 or older, or a parent or guardian has said it's OK for me to sign up. <span class="req">*</span></label></div>
+              <p class="ea-err" id="ea-err-agree" aria-live="polite"></p>
+            </fieldset>
+
+            <div class="ea-actions">
+              <button class="btn btn-live" type="submit" id="ea-submit">Request early access</button>
+              <span class="muted small" id="ea-status" aria-live="polite"></span>
+            </div>
+          </form>
+
+          <div class="glass-lg success-panel ea-done" id="ea-done" hidden aria-live="polite">
+            <svg class="tick" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#65d0eb"/><path d="M19 33l8.5 8.5L45 24" fill="none" stroke="#0c1627" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h2 class="h2" id="ea-done-title">You're on the list</h2>
+            <p class="muted" id="ea-done-text">Thanks for signing up. Cooper will email you when the next test build is ready.</p>
+            <div id="ea-fallback" hidden style="text-align:left">
+              <p>Your sign-up couldn't be sent from here. Please email these answers to <strong>cpisani@deckbuddy.app</strong> so you don't get missed.</p>
+              <pre class="inset mono" id="ea-summary"></pre>
+              <div class="ea-actions">
+                <a class="btn btn-accent" id="ea-mail" href="mailto:cpisani@deckbuddy.app">Open in your email app</a>
+                <button type="button" class="btn btn-ghost" id="ea-copy">Copy my answers</button>
+              </div>
+            </div>
+            <div class="ea-actions" style="justify-content:center;margin-top:1.25rem">
+              <button type="button" class="btn btn-ghost" id="ea-edit">Edit my answers</button>
+              <a class="btn btn-ghost" href="demo.html">See the live demo</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="ea-aside stack reveal reveal-right">
+          <div class="glass" style="padding:1.25rem 1.35rem">
+            <h3 class="h3">What testing looks like</h3>
+            <div class="ea-facts">
+              <p><strong>Free.</strong> Nothing costs anything while testing.</p>
+              <p><strong>Your own devices.</strong> Phone, tablet or laptop.</p>
+              <p><strong>Short feedback.</strong> About 10 minutes per build.</p>
+              <p><strong>Keep paper handy.</strong> It hasn't been run at a live meet yet.</p>
+            </div>
+          </div>
+          <div class="glass" style="padding:1.25rem 1.35rem">
+            <h3 class="h3">Rather talk it through?</h3>
+            <p class="muted small" style="margin:.5rem 0 1rem">Book a 20–40 min call with Cooper and see it run a heat.</p>
+            <a class="btn btn-ghost" href="call.html" style="width:100%">Book a call</a>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a class="brand mb-tight" href="index.html">
+          <svg width="24" height="24" viewBox="0 0 64 64" class="brand-mark" role="img" aria-hidden="true">
+        <title>Deck Buddy mark</title>
+        <rect x="2" y="2" width="60" height="60" rx="18" fill="#65d0eb"></rect>
+        <path d="M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+        <path d="M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0" fill="none" stroke="#0c1627" stroke-width="6.5" stroke-linecap="round"></path>
+      </svg>
+          Deck Buddy
+        </a>
+        <p class="muted small">The paper meet sheet, replaced — same shape, every mark becomes data.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="features.html">Features</a>
+        <a href="demo.html">Demo</a>
+        <a href="updates.html">Updates</a>
+        <a href="early-access.html">Early access</a>
+        <a href="call.html">Book a call</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:cpisani@deckbuddy.app">cpisani@deckbuddy.app</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Deck Buddy · Built on the deck, for the deck.</span>
+      <a class="version-chip mono" href="updates.html">Version 0.0.M</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* Sign-ups are emailed to Cooper through FormSubmit (formsubmit.co).
+     The first sign-up triggers a one-time activation email to this address. */
+  var ENDPOINT = "https://formsubmit.co/ajax/cpisani@deckbuddy.app";
+  var OPTS = {
+    role: ["Head coach","Assistant coach","Swimmer","Parent","Meet director","Other"],
+    now: ["Paper meet sheets","Spreadsheet","Meet Manager / Hy-Tek","Team app","Memory and hope"],
+    device: ["iPhone","iPad","Android phone","Android tablet","Laptop"],
+    features: ["Meet sheet","Coach dashboard","Swimmer dashboard","Notes","Team messaging","Practice attendance"]
+  };
+  var $ = function(id){ return document.getElementById(id); };
+  var form = $("ea-form"), done = $("ea-done"), last = null;
+
+  document.querySelectorAll("[data-group]").forEach(function(g){
+    var key = g.getAttribute("data-group"), single = g.hasAttribute("data-single");
+    OPTS[key].forEach(function(o){
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "toggle-chip"; b.textContent = o;
+      b.setAttribute("data-value", o); b.setAttribute("aria-pressed","false");
+      b.addEventListener("click", function(){
+        var on = b.getAttribute("aria-pressed") !== "true";
+        if (single) g.querySelectorAll(".toggle-chip").forEach(function(x){ x.setAttribute("aria-pressed","false"); });
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+      g.appendChild(b);
+    });
+  });
+  var picked = function(k){
+    return Array.prototype.map.call(document.querySelectorAll('[data-group="'+k+'"] .toggle-chip[aria-pressed="true"]'), function(x){ return x.getAttribute("data-value"); });
+  };
+  var read = function(){
+    return {
+      name: $("ea-name").value.trim(), email: $("ea-email").value.trim(),
+      role: picked("role")[0] || "", team: $("ea-team").value.trim(), league: $("ea-league").value.trim(),
+      size: $("ea-size").value, meets: $("ea-meets").value,
+      now: picked("now"), device: picked("device"), features: picked("features"),
+      pain: $("ea-pain").value.trim(), call: $("ea-call").checked
+    };
+  };
+  var summary = function(d){
+    return [
+      "Name: "+d.name, "Email: "+d.email, "Role: "+d.role,
+      "Team: "+(d.team||"-"), "League: "+(d.league||"-"),
+      "Roster size: "+(d.size||"-"), "Meets per season: "+(d.meets||"-"),
+      "Tracks meets with: "+(d.now.join(", ")||"-"), "Devices: "+(d.device.join(", ")||"-"),
+      "Wants to try: "+(d.features.join(", ")||"-"),
+      "Worst part of meet day: "+(d.pain||"-"), "Open to a call: "+(d.call?"Yes":"No")
+    ].join("\n");
+  };
+  var validate = function(d){
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email);
+    var agree = $("ea-understand").checked && $("ea-age").checked;
+    $("ea-err-contact").textContent = !d.name ? "Please add your name." : (!emailOk ? "Please add a valid email." : "");
+    $("ea-err-role").textContent = d.role ? "" : "Pick the role that fits you best.";
+    $("ea-err-agree").textContent = agree ? "" : "Please tick both boxes marked with a star.";
+    return d.name && emailOk && d.role && agree;
+  };
+  var show = function(sent, d){
+    form.hidden = true; done.hidden = false;
+    $("ea-done-title").textContent = sent ? "You're on the list" : "Almost there";
+    $("ea-done-text").textContent = sent ? "Thanks for signing up. Cooper will email you when the next test build is ready." : "One more step so your sign-up reaches us.";
+    $("ea-fallback").hidden = sent;
+    if (!sent){
+      $("ea-summary").textContent = summary(d);
+      $("ea-mail").href = "mailto:cpisani@deckbuddy.app?subject=" + encodeURIComponent("Deck Buddy early access: " + d.name) + "&body=" + encodeURIComponent(summary(d));
+    }
+    done.scrollIntoView({behavior:"smooth", block:"start"});
+  };
+
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var d = read();
+    if (!validate(d)){ var f = form.querySelector(".ea-err:not(:empty)"); if (f) f.scrollIntoView({block:"center"}); return; }
+    last = d;
+    var btn = $("ea-submit"); btn.disabled = true; $("ea-status").textContent = "Sending…";
+    var payload = {
+      _subject: "Deck Buddy early access: " + d.name, _template: "table", _captcha: "false", _replyto: d.email,
+      Name: d.name, Email: d.email, Role: d.role, Team: d.team, League: d.league,
+      "Roster size": d.size, "Meets per season": d.meets, "Tracks meets with": d.now.join(", "),
+      Devices: d.device.join(", "), "Wants to try": d.features.join(", "),
+      "Worst part of meet day": d.pain, "Open to a call": d.call ? "Yes" : "No"
+    };
+    fetch(ENDPOINT, { method:"POST", headers:{ "Content-Type":"application/json", "Accept":"application/json" }, body: JSON.stringify(payload) })
+      .then(function(r){ return r.json().then(function(j){ return r.ok && String(j.success) === "true"; }, function(){ return false; }); })
+      .catch(function(){ return false; })
+      .then(function(sent){ btn.disabled = false; $("ea-status").textContent = ""; show(sent, d); });
+  });
+
+  $("ea-edit").addEventListener("click", function(){ done.hidden = true; form.hidden = false; form.scrollIntoView({block:"start"}); });
+  $("ea-copy").addEventListener("click", function(){
+    var t = "To: cpisani@deckbuddy.app\n\n" + summary(last || read());
+    if (navigator.clipboard) navigator.clipboard.writeText(t).then(function(){ $("ea-copy").textContent = "Copied"; }, function(){ $("ea-copy").textContent = "Select the text above to copy"; });
+  });
+})();
+</script>
+</body>
+</html>

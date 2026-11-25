@@ -10,7 +10,7 @@ const fs = require('fs');
 const path = require('path');
 
 const OUT = 'dist';
-const COPY = ['index.html', 'features.html', 'demo.html', 'call.html', '404.html', 'site.css', 'site.js', 'vercel.json'];
+const COPY = ['index.html', 'features.html', 'demo.html', 'call.html', 'updates.html', 'early-access.html', '404.html', 'site.css', 'site.js', 'vercel.json'];
 
 function copy(src, dest) {
   const stat = fs.statSync(src);
