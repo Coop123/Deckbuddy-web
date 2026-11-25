@@ -11,8 +11,7 @@
   var P='deckbuddy:v2:',L=window.localStorage,q=location.search;
   if(!L.getItem(P+'demo:v1')||/[?&]reset\b/.test(q)){
     Object.keys(L).filter(function(k){return k.indexOf(P)===0}).forEach(function(k){L.removeItem(k)});
-    var dark=false;try{dark=(document.cookie.match(/(?:^|; )db-theme=(\w+)/)||[])[1]==='dark'||L.getItem('db-theme')==='dark'}catch(e){}
-    L.setItem(P+'session',JSON.stringify({meId:'cooper',theme:dark?'dark':'light',tab:'ready'}));
+    L.setItem(P+'session',JSON.stringify({meId:'cooper',theme:'light',tab:'ready'}));
     L.setItem(P+'teamSettings',JSON.stringify({meetCheckIn:'desk'}));
     L.setItem(P+'demo:v1','1');
   }
@@ -20,7 +19,28 @@
   try{var m=JSON.parse(L.getItem(P+'meets')||'null');(m&&m.meets||[]).forEach(function(x){if(x.id==='m-champs')champ=x.date})}catch(e){}
   if(!champ){var d=new Date();d.setDate(d.getDate()+4);d.setHours(7,15,0,0);champ=d.getTime()}
   L.setItem(P+'clockOffset',String(champ+65*60000-Date.now()));
+  /* Follow the device's light or dark setting on every load. */
+  try{var dk=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches;
+    var ss=JSON.parse(L.getItem(P+'session')||'{}');ss.theme=dk?'dark':'light';L.setItem(P+'session',JSON.stringify(ss));}catch(e){}
 }catch(e){}})();
+</script>
+<style id="demo-embed">
+/* Demo only: when the screen is short or narrow, let the app grow and scroll as one page
+   instead of squeezing everything into the viewport. */
+@media (max-width:899px),(max-height:839px){
+  html,body{height:auto!important;overflow-y:auto!important}
+  .db-app.room,.db-main,.db-rr,.db-rrbody,.md-root,.md-grid,.md-right,.md-left{height:auto!important;max-height:none!important;overflow:visible!important}
+  .db-app.room{min-height:100vh}
+  .md-sheet{flex:none!important;height:auto!important;max-height:none!important;overflow:visible!important}
+}
+.demo-wip{position:fixed;right:10px;bottom:10px;z-index:2147483000;pointer-events:none;
+  font:600 12px/1.2 system-ui,-apple-system,sans-serif;color:#0c1627;background:#ffd166;
+  border-radius:999px;padding:6px 11px;box-shadow:0 4px 14px rgba(12,22,39,.25)}
+@media print{.demo-wip{display:none}}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded',function(){var b=document.createElement('div');b.className='demo-wip';
+b.setAttribute('role','note');b.textContent='Demo \u00b7 work in progress \u00b7 not the final product';document.body.appendChild(b);});
 </script>
 
   <script type="module" crossorigin>(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))r(a);new MutationObserver(a=>{for(const x of a)if(x.type==="childList")for(const l of x.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&r(l)}).observe(document,{childList:!0,subtree:!0});function n(a){const x={};return a.integrity&&(x.integrity=a.integrity),a.referrerPolicy&&(x.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?x.credentials="include":a.crossOrigin==="anonymous"?x.credentials="omit":x.credentials="same-origin",x}function r(a){if(a.ep)return;a.ep=!0;const x=n(a);fetch(a.href,x)}})();var u9=typeof globalThis<"u"?globalThis:typeof window<"u"?window:typeof global<"u"?global:typeof self<"u"?self:{};function _l(e){return e&&e.__esModule&&Object.prototype.hasOwnProperty.call(e,"default")?e.default:e}var Gc={exports:{}},wa={},qc={exports:{}},le={};/**

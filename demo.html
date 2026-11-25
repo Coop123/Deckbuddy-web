@@ -6,16 +6,15 @@
 <title>Live demo — Deck Buddy</title>
 <meta name="description" content="An animated walkthrough of Deck Buddy's coach-deck flow — tap-to-place timing, tagging, and the meet sheet, in action.">
 <script>
-(function(){var t=null;
-try{var m=document.cookie.match(/(?:^|; )db-theme=(light|dark|system)/);if(m)t=m[1];}catch(e){}
-if(!t){try{t=localStorage.getItem('db-theme');}catch(e){}}
-if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}
-else{document.documentElement.removeAttribute('data-theme');}
+/* The site always follows the device's light or dark setting. Clear any old manual choice. */
+(function(){document.documentElement.removeAttribute('data-theme');
+try{localStorage.removeItem('db-theme');}catch(e){}
+try{document.cookie='db-theme=; path=/; max-age=0';document.cookie='db-theme=; path=/; max-age=0; domain=.deckbuddy.app';}catch(e){}
 })();
 </script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2365d0eb'/%3E%3Cg fill='none' stroke='%230c1627' stroke-width='6.5' stroke-linecap='round'%3E%3Cpath d='M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3Cpath d='M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3C/g%3E%3C/svg%3E">
-<link rel="stylesheet" href="site.css?v=3">
-<script src="site.js?v=2" defer></script>
+<link rel="stylesheet" href="site.css?v=4">
+<script src="site.js?v=4" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -39,7 +38,6 @@ else{document.documentElement.removeAttribute('data-theme');}
     <a class="nav-link" href="updates.html">Updates</a>
       <a class="nav-link" href="call.html">Book a call</a>
       <a class="btn btn-live" href="early-access.html">Early access</a>
-      <button type="button" class="icon-btn" data-theme-toggle aria-label="Switch theme"></button>
     </nav>
     <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" role="img" aria-hidden="true">
@@ -73,11 +71,10 @@ else{document.documentElement.removeAttribute('data-theme');}
 
       <div class="glass wip-banner reveal reveal-pop" role="note">
         <p class="wip-tag"><span class="wip-dot" aria-hidden="true"></span>Work in progress</p>
-        <p class="wip-text"><strong>This is a prototype and it has not been tested at a live meet
-          yet.</strong> Expect rough edges, missing pieces, and things that move without warning.
-          Full testing comes with version <span class="mono">0.1.A</span>, which goes to
-          <a href="early-access.html">early-access testers</a> first with the coach and swimmer dashboards, the meet
-          sheet and notes.</p>
+        <p class="wip-text"><strong>Work in progress &mdash; this is not the final product.</strong>
+          Deck Buddy hasn't been tested at a live meet yet. Expect rough edges, missing pieces and
+          things that change without warning. Everything you see uses sample swimmers and teams.
+          <a href="early-access.html">Early-access testers</a> try it first.</p>
         <p class="wip-text faint">There's no cost while it's in testing &mdash; pricing doesn't come
           into effect until full integration.</p>
       </div>
@@ -94,6 +91,9 @@ else{document.documentElement.removeAttribute('data-theme');}
         to tag the swim or record a DQ.</p>
     </div>
     <div class="wrap-wide mt-2">
+      <p class="live-note" role="note"><span class="wip-dot" aria-hidden="true"></span>
+        <strong>Work in progress, not the final product.</strong> Sample data only &mdash; scroll inside the
+        frame to move around the app.</p>
       <div class="glass-lg demo-stage reveal reveal-pop">
         <div class="browser-bar">
           <span class="browser-dots" aria-hidden="true"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></span>
@@ -105,7 +105,7 @@ else{document.documentElement.removeAttribute('data-theme');}
           <iframe class="live-frame" name="demo-live" src="/meet-sheet" title="Deck Buddy meet sheet — live demo" loading="lazy" allow="clipboard-write; fullscreen"></iframe>
         </div>
       </div>
-      <p class="faint center mt-1">Sample data. Best on a laptop or iPad &mdash; on a phone, use <a href="/meet-sheet" target="_blank" rel="noopener">full screen</a>.</p>
+      <p class="faint center mt-1">Prototype with sample data &mdash; features, design and data will change before release. Easiest on a laptop or iPad; on a phone, try <a href="/meet-sheet" target="_blank" rel="noopener">full screen</a>.</p>
     </div>
   </section>
 
@@ -326,42 +326,42 @@ else{document.documentElement.removeAttribute('data-theme');}
     <div class="wrap-narrow center">
       <p class="eyebrow reveal">Where this build stands</p>
       <h2 class="h2 center balance reveal">Honest about what's here — and what isn't.</h2>
-      <p class="lede center reveal">Current build is <span class="mono">0.0.M</span> &mdash; a working
-        prototype, not yet tested at a live meet. Full testing lands with <span class="mono">0.1.A</span>,
-        and <a href="early-access.html">early-access testers</a> get it first. Nothing costs anything until full integration.</p>
+      <p class="lede center reveal">A working prototype, not the final product, and not yet tested at a
+        live meet. <a href="early-access.html">Early-access testers</a> get it first. Nothing costs anything until full integration.</p>
     </div>
     <div class="wrap mt-2">
-      <div class="inout-grid roadmap-3">
-        <div class="glass card reveal reveal-left">
-          <h3 class="h3">In this build <span class="faint mono">0.0.M</span></h3>
+      <div class="inout-grid">
+        <div class="glass card reveal reveal-left card-hl">
+          <h3 class="h3">In the build now <span class="chip chip-accent">Work in progress</span></h3>
           <ul class="mt-1">
-            <li>Coach deck</li>
-            <li>Meet sheet</li>
-            <li>Swimmer popover</li>
-            <li>Tagging</li>
-            <li>Tap-to-place timing &mdash; no stopwatch, no keyboard</li>
-            <li>Splits, entered by hand</li>
-            <li>DQ picker</li>
-            <li>Team chips</li>
-            <li>Light and dark themes</li>
-          </ul>
-        </div>
-        <div class="glass card reveal reveal-pop card-hl">
-          <h3 class="h3">Full testing <span class="faint mono">0.1.A</span> <span class="chip chip-accent">Early access first</span></h3>
-          <ul class="mt-1">
-            <li>Coach dashboard</li>
-            <li>Swimmer dashboard</li>
-            <li>Meet sheet</li>
-            <li>Notes</li>
+            <li>Coach deck and meet sheet &mdash; on deck, in the water and previous heats at once</li>
+            <li>Tap-to-place finishes, with splits entered by hand</li>
+            <li>Tags and notes on every swim</li>
+            <li>DQ picker with USA Swimming codes, plus printable DQ slips</li>
+            <li>Scoring for dual meets, championships and time trials</li>
+            <li>Scratches and no-shows tracked separately</li>
+            <li>Heat sheet, entries, relays, requests and the check-in desk</li>
+            <li>Program and results imports, and spreadsheet export</li>
+            <li>Coach dashboard for your groups and the whole team</li>
+            <li>Swimmer dashboard with best times, practice rate and streaks</li>
+            <li>Practice attendance: a 4-digit code plus a check that the swimmer is at the pool</li>
+            <li>Messages: announcements by group, team and group chats, direct messages</li>
+            <li>Schedule with practices, meets, volunteer slots and calendar subscribe</li>
+            <li>Live meet-day updates for coaches, swimmers and parents</li>
+            <li>Team and swimmer profiles</li>
+            <li>Race-day checklists</li>
+            <li>Team manager: coaches, groups and join codes</li>
+            <li>Safe Sport flags and reporting</li>
+            <li>Meet director and officials tools</li>
+            <li>Season and league stats</li>
           </ul>
         </div>
         <div class="glass card reveal reveal-right">
-          <h3 class="h3">What's next after that</h3>
+          <h3 class="h3">Still to come</h3>
           <ul class="mt-1">
             <li>Timing-system connection &mdash; touchpad places, times and automatic splits</li>
-            <li>Program and results imports</li>
-            <li>Season persistence</li>
-            <li>Swimmer app on phones</li>
+            <li>Accounts that sync across devices &mdash; today the demo saves on the device you use</li>
+            <li>A phone app for swimmers and parents</li>
           </ul>
         </div>
       </div>
@@ -413,7 +413,7 @@ else{document.documentElement.removeAttribute('data-theme');}
     </div>
     <div class="footer-bottom">
       <span>© 2026 Deck Buddy · Built on the deck, for the deck.</span>
-      <a class="version-chip mono" href="updates.html">Version 0.0.M</a>
+      <a class="version-chip mono" href="updates.html">Work in progress</a>
     </div>
   </div>
 </footer>

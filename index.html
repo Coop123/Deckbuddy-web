@@ -6,16 +6,15 @@
 <title>Deck Buddy — run the whole meet from one screen</title>
 <meta name="description" content="Deck Buddy replaces the paper meet sheet at competitive swim meets. Same at-a-glance shape a coach already reads — but every mark becomes data.">
 <script>
-(function(){var t=null;
-try{var m=document.cookie.match(/(?:^|; )db-theme=(light|dark|system)/);if(m)t=m[1];}catch(e){}
-if(!t){try{t=localStorage.getItem('db-theme');}catch(e){}}
-if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}
-else{document.documentElement.removeAttribute('data-theme');}
+/* The site always follows the device's light or dark setting. Clear any old manual choice. */
+(function(){document.documentElement.removeAttribute('data-theme');
+try{localStorage.removeItem('db-theme');}catch(e){}
+try{document.cookie='db-theme=; path=/; max-age=0';document.cookie='db-theme=; path=/; max-age=0; domain=.deckbuddy.app';}catch(e){}
 })();
 </script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2365d0eb'/%3E%3Cg fill='none' stroke='%230c1627' stroke-width='6.5' stroke-linecap='round'%3E%3Cpath d='M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3Cpath d='M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3C/g%3E%3C/svg%3E">
-<link rel="stylesheet" href="site.css?v=3">
-<script src="site.js?v=2" defer></script>
+<link rel="stylesheet" href="site.css?v=4">
+<script src="site.js?v=4" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -39,7 +38,6 @@ else{document.documentElement.removeAttribute('data-theme');}
     <a class="nav-link" href="updates.html">Updates</a>
       <a class="nav-link" href="call.html">Book a call</a>
       <a class="btn btn-live" href="early-access.html">Early access</a>
-      <button type="button" class="icon-btn" data-theme-toggle aria-label="Switch theme"></button>
     </nav>
     <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" role="img" aria-hidden="true">
@@ -258,6 +256,7 @@ else{document.documentElement.removeAttribute('data-theme');}
         <video data-demo-video src="deckbuddy-demo.mp4" poster="deckbuddy-demo-poster.jpg" controls muted loop playsinline preload="metadata"
           aria-label="Deck Buddy demo video: the problem with paper meet sheets, then the real app tagging a swim, entering times and recording a DQ"></video>
       </div>
+      <p class="faint center mt-1">Work in progress, not the final product &mdash; sample data, recorded from a build that hasn't been tested at a live meet yet.</p>
       <p class="center mt-1"><a class="btn btn-ghost" href="demo.html#live">Try the meet sheet yourself</a></p>
     </div>
     <script>
@@ -483,14 +482,14 @@ else{document.documentElement.removeAttribute('data-theme');}
     <div class="wrap mt-2">
       <div class="glass card reveal reveal-pop" style="max-width:640px;margin-inline:auto">
         <div class="row" style="justify-content:space-between">
-          <h3 class="h3">Current build <span class="faint mono">0.0.M</span></h3>
-          <span class="chip chip-accent">Latest</span>
+          <h3 class="h3">What's in the release now</h3>
+          <span class="chip chip-accent">Work in progress</span>
         </div>
-        <p class="muted mt-half">On-deck view now keeps On deck, In the water and Previous visible
-          at once; scratches and no-shows are tracked separately; results import merges straight
-          onto a loaded program.</p>
-        <p class="faint mt-1">Next up: <span class="mono">0.1.A</span> — coach &amp; swimmer
-          dashboards, meet sheet and notes, going to <a href="early-access.html">early-access testers</a> first. <a href="updates.html">See the full changelog &rarr;</a></p>
+        <p class="muted mt-half">The meet sheet and coach deck, coach and swimmer dashboards, practice
+          attendance, messages, schedule, checklists, Safe Sport tools and more &mdash; all in the
+          live demo, none of it tested at a live meet yet.</p>
+        <p class="faint mt-1"><a href="early-access.html">Early-access testers</a> try it first.
+          <a href="updates.html">See everything in the release &rarr;</a></p>
       </div>
     </div>
   </section>
@@ -540,7 +539,7 @@ else{document.documentElement.removeAttribute('data-theme');}
     </div>
     <div class="footer-bottom">
       <span>© 2026 Deck Buddy · Built on the deck, for the deck.</span>
-      <a class="version-chip mono" href="updates.html">Version 0.0.M</a>
+      <a class="version-chip mono" href="updates.html">Work in progress</a>
     </div>
   </div>
 </footer>

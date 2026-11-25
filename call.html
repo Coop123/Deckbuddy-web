@@ -6,16 +6,15 @@
 <title>Book a call — Deck Buddy</title>
 <meta name="description" content="Pick a time and we'll walk through Deck Buddy together — a 20–40 min call with Cooper on video, booked straight to the calendar.">
 <script>
-(function(){var t=null;
-try{var m=document.cookie.match(/(?:^|; )db-theme=(light|dark|system)/);if(m)t=m[1];}catch(e){}
-if(!t){try{t=localStorage.getItem('db-theme');}catch(e){}}
-if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}
-else{document.documentElement.removeAttribute('data-theme');}
+/* The site always follows the device's light or dark setting. Clear any old manual choice. */
+(function(){document.documentElement.removeAttribute('data-theme');
+try{localStorage.removeItem('db-theme');}catch(e){}
+try{document.cookie='db-theme=; path=/; max-age=0';document.cookie='db-theme=; path=/; max-age=0; domain=.deckbuddy.app';}catch(e){}
 })();
 </script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2365d0eb'/%3E%3Cg fill='none' stroke='%230c1627' stroke-width='6.5' stroke-linecap='round'%3E%3Cpath d='M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3Cpath d='M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3C/g%3E%3C/svg%3E">
-<link rel="stylesheet" href="site.css?v=3">
-<script src="site.js?v=2" defer></script>
+<link rel="stylesheet" href="site.css?v=4">
+<script src="site.js?v=4" defer></script>
 <style>
   /* ---- Booking layout ------------------------------------------------- */
   .book-grid{display:grid;gap:clamp(1.5rem,3.5vw,2.75rem);grid-template-columns:1fr;align-items:start}
@@ -108,7 +107,6 @@ else{document.documentElement.removeAttribute('data-theme');}
     <a class="nav-link" href="updates.html">Updates</a>
       <a class="nav-link" href="call.html">Book a call</a>
       <a class="btn btn-live" href="early-access.html">Early access</a>
-      <button type="button" class="icon-btn" data-theme-toggle aria-label="Switch theme"></button>
     </nav>
     <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" role="img" aria-hidden="true">
@@ -248,11 +246,11 @@ else{document.documentElement.removeAttribute('data-theme');}
         <details class="accordion-item reveal">
           <summary>Is Deck Buddy ready to use?</summary>
           <div class="accordion-body">
-            <p>Not yet. It's a working prototype and it has not been tested at a live meet. The
-              coach deck, the meet sheet, the swimmer popover, tagging and tap-to-place timing are
-              built and you can click through them today. Full testing comes with version <span class="mono">0.1.A</span>, which goes to
-              <a href="early-access.html">early-access testers</a> first and adds the coach and swimmer dashboards, the meet sheet and notes. The
-              <a href="demo.html">demo page</a> is honest about which is which.</p>
+            <p>Not yet. It's a work in progress, not the final product, and it has not been tested at a
+              live meet. The meet sheet, coach and swimmer dashboards, attendance, messages and more are
+              built and you can click through them in the <a href="demo.html">live demo</a>.
+              <a href="early-access.html">Early-access testers</a> try it first, and
+              <a href="updates.html">Updates</a> lists exactly what's in it.</p>
           </div>
         </details>
 
@@ -262,8 +260,7 @@ else{document.documentElement.removeAttribute('data-theme');}
             <p>Not yet — that's a later feature. Today it runs entirely on tap-to-place, which is
               the case it was built for: hit Start, then tap swimmers' names as they finish and each
               tap assigns the next heat place. No times, no keyboard, no stopwatch. Reading places,
-              times and touchpad splits straight from a timing system is on the roadmap, after
-              <span class="mono">0.1.A</span>.</p>
+              times and touchpad splits straight from a timing system is on the roadmap.</p>
           </div>
         </details>
 
@@ -343,7 +340,7 @@ else{document.documentElement.removeAttribute('data-theme');}
     </div>
     <div class="footer-bottom">
       <span>© 2026 Deck Buddy · Built on the deck, for the deck.</span>
-      <a class="version-chip mono" href="updates.html">Version 0.0.M</a>
+      <a class="version-chip mono" href="updates.html">Work in progress</a>
     </div>
   </div>
 </footer>

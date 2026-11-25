@@ -6,21 +6,20 @@
 <title>Features — Deck Buddy</title>
 <meta name="description" content="Every piece of Deck Buddy: the deck, the meet sheet, timing modes, tagging, splits, scoring, statuses, imports, export, and the coach dashboard.">
 <script>
-(function(){var t=null;
-try{var m=document.cookie.match(/(?:^|; )db-theme=(light|dark|system)/);if(m)t=m[1];}catch(e){}
-if(!t){try{t=localStorage.getItem('db-theme');}catch(e){}}
-if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}
-else{document.documentElement.removeAttribute('data-theme');}
+/* The site always follows the device's light or dark setting. Clear any old manual choice. */
+(function(){document.documentElement.removeAttribute('data-theme');
+try{localStorage.removeItem('db-theme');}catch(e){}
+try{document.cookie='db-theme=; path=/; max-age=0';document.cookie='db-theme=; path=/; max-age=0; domain=.deckbuddy.app';}catch(e){}
 })();
 </script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2365d0eb'/%3E%3Cg fill='none' stroke='%230c1627' stroke-width='6.5' stroke-linecap='round'%3E%3Cpath d='M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3Cpath d='M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3C/g%3E%3C/svg%3E">
-<link rel="stylesheet" href="site.css?v=3">
+<link rel="stylesheet" href="site.css?v=4">
 <style>
   /* Sub-nav sticks below the fixed-height chrome above it; anchors land clear of both bars. */
   .subnav{ top:76px; }
   main > section[id]{ scroll-margin-top:140px; }
 </style>
-<script src="site.js?v=2" defer></script>
+<script src="site.js?v=4" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -44,7 +43,6 @@ else{document.documentElement.removeAttribute('data-theme');}
     <a class="nav-link" href="updates.html">Updates</a>
       <a class="nav-link" href="call.html">Book a call</a>
       <a class="btn btn-live" href="early-access.html">Early access</a>
-      <button type="button" class="icon-btn" data-theme-toggle aria-label="Switch theme"></button>
     </nav>
     <button type="button" class="icon-btn nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" role="img" aria-hidden="true">
@@ -70,8 +68,10 @@ else{document.documentElement.removeAttribute('data-theme');}
     <div class="wrap">
       <p class="eyebrow reveal">Features</p>
       <h1 class="display balance reveal">Everything on the deck, and everything after it.</h1>
-      <p class="lede reveal">Ten pieces, one shape: the same at-a-glance sheet a coach already reads, followed
-        all the way from the deck to the dashboard weeks later.</p>
+      <p class="lede reveal">The same at-a-glance sheet a coach already reads, followed from the deck to the
+        dashboard weeks later &mdash; plus the rest of the club: practice, messages, schedules and the people who run the meet.</p>
+      <p class="faint reveal">Everything on this page is in the current build and in the <a href="demo.html">live demo</a>.
+        It's a work in progress, not the final product, and hasn't been tested at a live meet yet.</p>
     </div>
   </section>
 
@@ -88,6 +88,9 @@ else{document.documentElement.removeAttribute('data-theme');}
       <a class="subnav-link" data-spy href="#imports">Imports</a>
       <a class="subnav-link" data-spy href="#export">Export</a>
       <a class="subnav-link" data-spy href="#dashboards">Dashboards</a>
+      <a class="subnav-link" data-spy href="#club">The club</a>
+      <a class="subnav-link" data-spy href="#safety">Safe Sport</a>
+      <a class="subnav-link" data-spy href="#host">Meet director</a>
     </div>
   </nav>
 
@@ -555,6 +558,90 @@ else{document.documentElement.removeAttribute('data-theme');}
     </div>
   </section>
 
+  <!-- ============ 11. The club (beyond meet day) ============ -->
+  <section class="section" id="club">
+    <div class="wrap">
+      <p class="eyebrow reveal">The club</p>
+      <h2 class="h2 balance reveal">Everything between meets, in the same app.</h2>
+      <p class="lede reveal">Practice, messages and schedules for head coaches, assistants, team parents and
+        swimmers, each seeing what fits their role.</p>
+      <div class="grid cols-3 stagger mt-2">
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Coach dashboard</h3>
+          <p class="muted">Your groups at a glance: swimmers, practice attendance over the last 30 days, best-time rate and DQs at the last meet, and who needs work. Head coaches can share whole-team numbers with every coach or keep them to themselves.</p>
+        </div>
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Swimmer dashboard</h3>
+          <p class="muted">Each swimmer sees their own best times, practice rate, streak and DQs, plus the notes their coach left after a race.</p>
+        </div>
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Practice attendance</h3>
+          <p class="muted">Coaches open a practice with a four-digit code. Swimmers check in from their phone, and it only counts if they're at the pool. Four wrong tries locks them out for that practice.</p>
+        </div>
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Messages</h3>
+          <p class="muted">Announcements by group (Varsity, JV, whoever you name), sent by coaches and team parents, with email or text alongside. Plus team and group chats and direct messages. Rename or reshuffle a group and its chat follows.</p>
+        </div>
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Schedule</h3>
+          <p class="muted">Practices, meets, volunteer slots and team socials on one calendar. Parents sign up for timer slots there, and anyone can subscribe from their own calendar app.</p>
+        </div>
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Live on meet day</h3>
+          <p class="muted">Swimmers, parents and coaches follow the meet as it happens instead of crowding the results wall.</p>
+        </div>
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Team and swimmer profiles</h3>
+          <p class="muted">A profile for the team and for every swimmer, so coaches and families find what they need without digging through a spreadsheet.</p>
+        </div>
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Race-day checklists</h3>
+          <p class="muted">Build the checklist once (cap, goggles, events, warm-up time), send it to every swimmer's phone, and see who has checked in.</p>
+        </div>
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Team manager</h3>
+          <p class="muted">Set up coaches, groups and join codes, and choose how messaging works: a whole-team chat or group chats only, and who can start smaller groups.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 12. Safe Sport ============ -->
+  <section class="section" id="safety">
+    <div class="wrap">
+      <div class="glass-lg card reveal reveal-pop" style="padding:clamp(1.25rem,3.5vw,2.25rem)">
+        <p class="eyebrow">Safe Sport</p>
+        <h2 class="h2 balance">Built with minors' messages in mind.</h2>
+        <p class="lede">Messages that look off are flagged to your team's Safe Sport reporter. The reporter can
+          review them and escalate into a conversation that brings in the coach and, for a minor, a parent. The
+          Safe Sport page is for the reporter and the head coach only.</p>
+        <p class="faint mt-1">A tool to support your club's Safe Sport policy, not a replacement for it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 13. Meet director & officials ============ -->
+  <section class="section" id="host">
+    <div class="wrap">
+      <p class="eyebrow reveal">Meet director and officials</p>
+      <h2 class="h2 balance reveal">For the team running the meet, too.</h2>
+      <div class="grid cols-3 stagger mt-2">
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Meet setup</h3>
+          <p class="muted">Entry limits, scoring and finalists are set once by the host team and used by the meet sheet automatically.</p>
+        </div>
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Check-in desk</h3>
+          <p class="muted">Check swimmers in at a desk on an iPad, or let them check in from their own phones.</p>
+        </div>
+        <div class="card reveal reveal-up">
+          <h3 class="h3">Officials and DQ slips</h3>
+          <p class="muted">Officials record a DQ with the exact code, and the slip can be printed at the desk or sent to the coach right away.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ Design principles ============ -->
   <section class="section-tight">
     <div class="wrap">
@@ -577,9 +664,9 @@ else{document.documentElement.removeAttribute('data-theme');}
             ground — never body text over unblurred glass.</p>
         </div>
         <div class="card reveal reveal-up">
-          <h3 class="h3">Light and dark, both real</h3>
-          <p class="muted">Both themes ship as complete palettes, not an inverted afterthought —
-            light blues and pinks either way.</p>
+          <h3 class="h3">Follows your device</h3>
+          <p class="muted">Light or dark, it matches your phone or computer's setting. Both are complete
+            palettes, not an inverted afterthought.</p>
         </div>
       </div>
     </div>
@@ -630,7 +717,7 @@ else{document.documentElement.removeAttribute('data-theme');}
     </div>
     <div class="footer-bottom">
       <span>© 2026 Deck Buddy · Built on the deck, for the deck.</span>
-      <a class="version-chip mono" href="updates.html">Version 0.0.M</a>
+      <a class="version-chip mono" href="updates.html">Work in progress</a>
     </div>
   </div>
 </footer>
