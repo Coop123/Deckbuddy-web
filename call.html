@@ -6,10 +6,12 @@
 <title>Book a call — Deck Buddy</title>
 <meta name="description" content="Pick a time and we'll walk through Deck Buddy together — a 20–40 min call with Cooper on video, booked straight to the calendar.">
 <script>
-(function(){try{var t=localStorage.getItem('db-theme');
+(function(){var t=null;
+try{var m=document.cookie.match(/(?:^|; )db-theme=(light|dark|system)/);if(m)t=m[1];}catch(e){}
+if(!t){try{t=localStorage.getItem('db-theme');}catch(e){}}
 if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}
 else{document.documentElement.removeAttribute('data-theme');}
-}catch(e){}})();
+})();
 </script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2365d0eb'/%3E%3Cg fill='none' stroke='%230c1627' stroke-width='6.5' stroke-linecap='round'%3E%3Cpath d='M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3Cpath d='M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="stylesheet" href="site.css">
@@ -58,6 +60,13 @@ else{document.documentElement.removeAttribute('data-theme');}
     box-shadow:0 1px 0 rgba(255,255,255,.7) inset, 0 18px 46px -26px rgba(16,35,59,.55);
   }
   .screen iframe{display:block;width:100%;height:760px;border:0}
+  /* Google's scheduler only renders light; dim it to match dark mode. */
+  [data-theme="dark"] .screen{background:#0a1220;border-color:var(--db-line)}
+  [data-theme="dark"] .screen iframe{filter:invert(.9) hue-rotate(180deg)}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme]) .screen{background:#0a1220;border-color:var(--db-line)}
+    :root:not([data-theme]) .screen iframe{filter:invert(.9) hue-rotate(180deg)}
+  }
   @media (max-width:700px){ .screen iframe{height:640px} }
 
   .stage-foot{

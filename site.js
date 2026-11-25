@@ -28,6 +28,25 @@
     try { window.localStorage.setItem(key, value); } catch (e) { /* ignore */ }
   }
 
+  /* Theme choice lives in a cookie shared by deckbuddy.app and www.deckbuddy.app
+     (and localStorage as a fallback), so dark mode follows you to every page. */
+  function themeGet() {
+    try {
+      var m = document.cookie.match(/(?:^|; )db-theme=(light|dark|system)/);
+      if (m) return m[1];
+    } catch (e) {}
+    return storageGet("db-theme");
+  }
+  function themeSet(value) {
+    storageSet("db-theme", value);
+    try {
+      var host = location.hostname, domain = "";
+      if (/(^|\.)deckbuddy\.app$/.test(host)) domain = "; domain=.deckbuddy.app";
+      document.cookie = "db-theme=" + value + "; path=/; max-age=31536000; SameSite=Lax" + domain +
+        (location.protocol === "https:" ? "; Secure" : "");
+    } catch (e) {}
+  }
+
   var reducedMotion = false;
   try {
     reducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -81,7 +100,7 @@
     try { mq = window.matchMedia("(prefers-color-scheme: dark)"); } catch (e) { mq = null; }
 
     function stored() {
-      var t = storageGet("db-theme");
+      var t = themeGet();
       return (t === "light" || t === "dark") ? t : "system";
     }
 
@@ -117,8 +136,7 @@
     for (var b = 0; b < btns.length; b++) {
       btns[b].addEventListener("click", function () {
         var next = order[(order.indexOf(stored()) + 1) % order.length];
-        if (next === "system") { storageSet("db-theme", "system"); }
-        else { storageSet("db-theme", next); }
+        themeSet(next);
         apply(next);
         paint();
       });
