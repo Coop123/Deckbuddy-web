@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Deck Buddy — run the whole meet from one screen</title>
-<meta name="description" content="Deck Buddy replaces the paper meet sheet at competitive swim meets. Same at-a-glance shape a coach already reads — but every mark becomes data.">
+<title>Deck Buddy — the swim team app, built on the pool deck</title>
+<meta name="description" content="Deck Buddy puts the meet sheet, DQs, team chat, schedule, swimmer profiles and meet entries in one app for swim teams. Early access opens January 5, 2027 — free while testing.">
 <script>
 /* The site always follows the device's light or dark setting. Clear any old manual choice. */
 (function(){document.documentElement.removeAttribute('data-theme');
@@ -13,8 +13,8 @@ try{document.cookie='db-theme=; path=/; max-age=0';document.cookie='db-theme=; p
 })();
 </script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2365d0eb'/%3E%3Cg fill='none' stroke='%230c1627' stroke-width='6.5' stroke-linecap='round'%3E%3Cpath d='M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3Cpath d='M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3C/g%3E%3C/svg%3E">
-<link rel="stylesheet" href="site.css?v=4">
-<script src="site.js?v=4" defer></script>
+<link rel="stylesheet" href="site.css?v=5">
+<script src="site.js?v=5" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -64,15 +64,19 @@ try{document.cookie='db-theme=; path=/; max-age=0';document.cookie='db-theme=; p
     <span class="float-b" aria-hidden="true"></span>
     <div class="wrap hero-grid">
       <div class="hero-copy reveal reveal-left in">
-        <p class="eyebrow">Built on the pool deck</p>
+        <a class="announce" href="early-access.html"><span class="announce-dot" aria-hidden="true"></span>Early access opens Jan 5, 2027 <span aria-hidden="true">&rarr;</span></a>
         <h1 class="display balance">Run the whole meet from one screen.</h1>
-        <p class="lede">Paper meet sheets are write-once and unsearchable. Deck Buddy keeps the same
-          at-a-glance shape a coach already reads — but every mark becomes data.</p>
+        <p class="lede">The meet sheet, DQ slips, team chat, schedule, swimmer profiles and meet
+          entries &mdash; in one app, built for the coach standing on deck.</p>
         <div class="hero-actions">
           <a class="btn btn-accent" href="#watch">Watch the demo</a>
           <a class="btn btn-ghost" href="early-access.html">Get early access</a>
         </div>
-        <p class="trust-line">iPad on deck · phone for swimmers · computer for meet entry</p>
+        <ul class="hero-facts" aria-label="At a glance">
+          <li><strong>Free</strong> while testing</li>
+          <li><strong>Works</strong> without a timing system</li>
+          <li><strong>iPad, phone</strong> or laptop</li>
+        </ul>
       </div>
 
       <div class="hero-mock reveal reveal-right in">
@@ -443,30 +447,69 @@ try{document.cookie='db-theme=; path=/; max-age=0';document.cookie='db-theme=; p
     </div>
   </section>
 
-  <!-- ============ Three surfaces ============ -->
-  <section class="section">
+  <!-- ============ One app ============ -->
+  <section class="section" id="one-app">
     <div class="wrap">
-      <p class="eyebrow center reveal">Three surfaces</p>
-      <h2 class="h2 center balance reveal">One system, built for where you're standing.</h2>
-      <div class="grid cols-3 stagger mt-2">
-        <div class="card reveal reveal-up">
-          <h3 class="h3">Coach deck</h3>
-          <p class="faint">iPad recommended, phone works too</p>
-          <p class="muted mt-half">Standing, moving, wet hands, sun on the screen, between
-            heats. Built for tap-to-place and big targets, not typing.</p>
+      <p class="eyebrow center reveal">One app for the whole season</p>
+      <h2 class="h2 center balance reveal">Put away the clipboard, the group text and three other apps.</h2>
+      <p class="lede center reveal" style="margin-inline:auto">Most teams juggle a paper meet sheet, a chat app, a results site and a meet app.
+        Deck Buddy does each of those jobs, and they all share one roster.</p>
+      <div class="replace-grid stagger mt-2">
+        <div class="replace-card reveal reveal-up">
+          <p class="replace-was">Instead of paper meet sheets</p>
+          <h3 class="h3">Ready Room meet sheet</h3>
+          <p class="muted">On deck, in the water and previous heats at once. Tap to place, tag a swim, leave a note, log a DQ mid-race.</p>
         </div>
-        <div class="card reveal reveal-up">
-          <h3 class="h3">Swimmer side</h3>
-          <p class="faint">Phone</p>
-          <p class="muted mt-half">Sitting under a canopy. Up next, results so far, best
-            times, and a progression chart for the off day.</p>
+        <div class="replace-card reveal reveal-up">
+          <p class="replace-was">Instead of team chat apps</p>
+          <h3 class="h3">Messages &amp; schedule</h3>
+          <p class="muted">Announcements by group, team and group chats, DMs, practices, meets and volunteer slots on one calendar.</p>
         </div>
-        <div class="card reveal reveal-up">
-          <h3 class="h3">Meet entry</h3>
-          <p class="faint">Computer or iPad</p>
-          <p class="muted mt-half">Sitting, keyboard available. Dense forms are fine here —
-            this is where the program and results get loaded in.</p>
+        <div class="replace-card reveal reveal-up">
+          <p class="replace-was">Instead of results sites</p>
+          <h3 class="h3">Roster &amp; profiles</h3>
+          <p class="muted">A page for the team and every swimmer, with best times plus the notes, tags and attendance behind them.</p>
         </div>
+        <div class="replace-card reveal reveal-up">
+          <p class="replace-was">Instead of meet apps</p>
+          <h3 class="h3">Entries &amp; results</h3>
+          <p class="muted">Enter meets, build relays, run the check-in desk, and keep results with your notes attached.</p>
+        </div>
+        <div class="replace-card reveal reveal-up">
+          <p class="replace-was">Instead of lost slips</p>
+          <h3 class="h3">One-tap DQs</h3>
+          <p class="muted">Log the DQ on your phone and send it to the swimmer and their parent before they're back at the tent.</p>
+        </div>
+        <div class="replace-card reveal reveal-up">
+          <p class="replace-was">Built in, not bolted on</p>
+          <h3 class="h3">Safe Sport tools</h3>
+          <p class="muted">Messages are screened and flagged for a designated reporter, who can still see everything. Supports your policy; doesn't replace it.</p>
+        </div>
+      </div>
+      <p class="center mt-2 reveal"><a class="btn btn-ghost" href="features.html">See every feature</a></p>
+    </div>
+  </section>
+
+  <!-- ============ Pricing / early access ============ -->
+  <section class="section-tight" id="pricing">
+    <div class="wrap">
+      <div class="price-band glass-lg reveal reveal-pop">
+        <div class="price-copy">
+          <p class="eyebrow">Early access</p>
+          <h2 class="h2 balance">Free while we test. A thank-you when we launch.</h2>
+          <p class="muted">Testing opens <strong>January 5, 2027</strong> and the release is planned for <strong>April 2027</strong>.
+            Nothing costs anything while you test. Paid plans start after launch, and early testers keep a discount.</p>
+          <div class="cta-actions" style="justify-content:flex-start">
+            <a class="btn btn-live" href="early-access.html">Get early access</a>
+            <a class="btn btn-ghost" href="call.html">Book a call</a>
+          </div>
+        </div>
+        <ul class="price-tiers" aria-label="Planned early-tester discounts">
+          <li class="price-tier is-hot"><span class="price-big">50% off</span><span class="price-for">for 3 years</span><span class="price-who">The first 10 testers to sign up</span></li>
+          <li class="price-tier"><span class="price-big">25% off</span><span class="price-for">your first year</span><span class="price-who">Every other early-access tester</span></li>
+          <li class="price-tier"><span class="price-big">$0</span><span class="price-for">during testing</span><span class="price-who">No card, no commitment</span></li>
+        </ul>
+        <p class="faint small price-note">Pricing isn't final. Dates, discounts and features are planned and may change before release.</p>
       </div>
     </div>
   </section>
@@ -482,12 +525,12 @@ try{document.cookie='db-theme=; path=/; max-age=0';document.cookie='db-theme=; p
     <div class="wrap mt-2">
       <div class="glass card reveal reveal-pop" style="max-width:640px;margin-inline:auto">
         <div class="row" style="justify-content:space-between">
-          <h3 class="h3">What's in the release now</h3>
-          <span class="chip chip-accent">Work in progress</span>
+          <h3 class="h3">Latest: early-tester pricing plan</h3>
+          <span class="chip chip-accent">Nov 25, 2026</span>
         </div>
-        <p class="muted mt-half">The meet sheet and coach deck, coach and swimmer dashboards, practice
-          attendance, messages, schedule, checklists, Safe Sport tools and more &mdash; all in the
-          live demo, none of it tested at a live meet yet.</p>
+        <p class="muted mt-half">Free while testing, with planned launch discounts for early testers.
+          Profiles is now called Roster. The release already has the meet sheet, dashboards, attendance,
+          messages, schedule, checklists and Safe Sport tools &mdash; none of it tested at a live meet yet.</p>
         <p class="faint mt-1"><a href="early-access.html">Early-access testers</a> try it first.
           <a href="updates.html">See everything in the release &rarr;</a></p>
       </div>
@@ -522,7 +565,7 @@ try{document.cookie='db-theme=; path=/; max-age=0';document.cookie='db-theme=; p
       </svg>
           Deck Buddy
         </a>
-        <p class="muted small">The paper meet sheet, replaced — same shape, every mark becomes data.</p>
+        <p class="muted small">The swim team app built on the pool deck: meet sheet, DQs, chat, schedule and results in one place.</p>
       </div>
       <div class="footer-col">
         <h4>Product</h4>
