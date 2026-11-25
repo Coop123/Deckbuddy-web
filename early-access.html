@@ -31,6 +31,9 @@ try{document.cookie='db-theme=; path=/; max-age=0';document.cookie='db-theme=; p
   .ea-actions{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
   .ea-facts{display:grid;gap:.6rem;margin-top:1rem}
   .ea-facts p{margin:0;font-size:.95rem}
+  .ea-dates{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;padding:0;margin:1.5rem 0 0}
+  .ea-dates li{display:flex;flex-direction:column;gap:.15rem;padding:.7rem 1.2rem;border-radius:14px;border:1px solid var(--db-line);background:var(--db-panel-inset);text-align:center;min-width:11rem}
+  .ea-dates strong{font-size:1.1rem}
   .ea-done{text-align:center}
   .ea-done .tick{width:64px;height:64px;margin:0 auto 1rem;display:block}
   @media (prefers-reduced-motion:no-preference){.ea-done:not([hidden]) .tick{animation:ea-pop .45s ease-out both}}
@@ -89,6 +92,10 @@ try{document.cookie='db-theme=; path=/; max-age=0';document.cookie='db-theme=; p
         Deck Buddy is a work in progress and hasn't been run at a live meet yet. Sign up to try the
         test builds and tell us what breaks. It's free while testing.
       </p>
+      <ul class="ea-dates reveal" aria-label="Key dates">
+        <li><span class="faint small">Testing opens</span><strong>January 5, 2027</strong></li>
+        <li><span class="faint small">Planned release</span><strong>April 2027</strong></li>
+      </ul>
     </div>
   </section>
 
@@ -155,7 +162,7 @@ try{document.cookie='db-theme=; path=/; max-age=0';document.cookie='db-theme=; p
           <div class="glass-lg success-panel ea-done" id="ea-done" hidden aria-live="polite">
             <svg class="tick" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#65d0eb"/><path d="M19 33l8.5 8.5L45 24" fill="none" stroke="#0c1627" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <h2 class="h2" id="ea-done-title">You're on the list</h2>
-            <p class="muted" id="ea-done-text">Thanks for signing up. Cooper will email you when the next test build is ready.</p>
+            <p class="muted" id="ea-done-text">Thanks for signing up. Testing opens January 5, 2027, and Cooper will email you before then.</p>
             <div id="ea-fallback" hidden style="text-align:left">
               <p>Your sign-up couldn't be sent from here. Please email these answers to <strong>cpisani@deckbuddy.app</strong> so you don't get missed.</p>
               <pre class="inset mono" id="ea-summary"></pre>
@@ -175,6 +182,7 @@ try{document.cookie='db-theme=; path=/; max-age=0';document.cookie='db-theme=; p
           <div class="glass" style="padding:1.25rem 1.35rem">
             <h3 class="h3">What testing looks like</h3>
             <div class="ea-facts">
+              <p><strong>Starts January 5, 2027.</strong> Release is planned for April 2027.</p>
               <p><strong>Free.</strong> Nothing costs anything while testing.</p>
               <p><strong>Your own devices.</strong> Phone, tablet or laptop.</p>
               <p><strong>Short feedback.</strong> About 10 minutes per build.</p>
@@ -306,7 +314,7 @@ try{document.cookie='db-theme=; path=/; max-age=0';document.cookie='db-theme=; p
   var show = function(sent, d){
     form.hidden = true; done.hidden = false;
     $("ea-done-title").textContent = sent ? "You're on the list" : "Almost there";
-    $("ea-done-text").textContent = sent ? "Thanks for signing up. Cooper will email you when the next test build is ready." : "One more step so your sign-up reaches us.";
+    $("ea-done-text").textContent = sent ? "Thanks for signing up. Testing opens January 5, 2027, and Cooper will email you before then." : "One more step so your sign-up reaches us.";
     $("ea-fallback").hidden = sent;
     if (!sent){
       $("ea-summary").textContent = summary(d);
