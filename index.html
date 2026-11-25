@@ -14,7 +14,7 @@ else{document.documentElement.removeAttribute('data-theme');}
 })();
 </script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2365d0eb'/%3E%3Cg fill='none' stroke='%230c1627' stroke-width='6.5' stroke-linecap='round'%3E%3Cpath d='M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3Cpath d='M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3C/g%3E%3C/svg%3E">
-<link rel="stylesheet" href="site.css?v=2">
+<link rel="stylesheet" href="site.css?v=3">
 <script src="site.js?v=2" defer></script>
 </head>
 <body>
@@ -71,7 +71,7 @@ else{document.documentElement.removeAttribute('data-theme');}
         <p class="lede">Paper meet sheets are write-once and unsearchable. Deck Buddy keeps the same
           at-a-glance shape a coach already reads — but every mark becomes data.</p>
         <div class="hero-actions">
-          <a class="btn btn-accent" href="demo.html">See the live demo</a>
+          <a class="btn btn-accent" href="#watch">Watch the demo</a>
           <a class="btn btn-ghost" href="early-access.html">Get early access</a>
         </div>
         <p class="trust-line">iPad on deck · phone for swimmers · computer for meet entry</p>
@@ -243,6 +243,28 @@ else{document.documentElement.removeAttribute('data-theme');}
         <p class="visually-hidden" id="deck-mock-desc">Animated preview of the Deck Buddy coach screen: on the left, the heat racing now and the heat that just finished; on the right, the full meet sheet with the current heat highlighted. Places fill in as swimmers finish, then the heat rolls into Previous and the sheet advances to the next event.</p>
       </div>
     </div>
+  </section>
+
+  <!-- ============ Demo video ============ -->
+  <section class="section-tight" id="watch">
+    <div class="wrap-narrow center">
+      <p class="eyebrow center reveal">Watch the demo</p>
+      <h2 class="h2 center balance reveal">90 seconds on deck with Deck Buddy.</h2>
+      <p class="lede center reveal">The demo-call walkthrough, with the real build running a heat: tag a swim, write a
+        note, enter times, record a DQ.</p>
+    </div>
+    <div class="wrap mt-2">
+      <div class="glass-lg video-stage reveal reveal-pop">
+        <video data-demo-video src="deckbuddy-demo.mp4" poster="deckbuddy-demo-poster.jpg" controls muted loop playsinline preload="metadata"
+          aria-label="Deck Buddy demo video: the problem with paper meet sheets, then the real app tagging a swim, entering times and recording a DQ"></video>
+      </div>
+      <p class="center mt-1"><a class="btn btn-ghost" href="demo.html#live">Try the meet sheet yourself</a></p>
+    </div>
+    <script>
+      (function(){var v=document.querySelector('[data-demo-video]');if(!v||!('IntersectionObserver' in window))return;
+        if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+        new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}else{v.pause()}})},{threshold:.5}).observe(v);})();
+    </script>
   </section>
 
   <!-- ============ The problem ============ -->

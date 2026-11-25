@@ -14,7 +14,7 @@ else{document.documentElement.removeAttribute('data-theme');}
 })();
 </script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%2365d0eb'/%3E%3Cg fill='none' stroke='%230c1627' stroke-width='6.5' stroke-linecap='round'%3E%3Cpath d='M15 26c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3Cpath d='M15 39c4.25-7 12.75-7 17 0 4.25 7 12.75 7 17 0'/%3E%3C/g%3E%3C/svg%3E">
-<link rel="stylesheet" href="site.css?v=2">
+<link rel="stylesheet" href="site.css?v=3">
 <script src="site.js?v=2" defer></script>
 </head>
 <body>
@@ -67,9 +67,9 @@ else{document.documentElement.removeAttribute('data-theme');}
     <div class="wrap-narrow center" style="position:relative;z-index:1">
       <p class="eyebrow reveal">Product demo</p>
       <h1 class="display balance center reveal">See it run a heat.</h1>
-      <p class="lede center reveal">An animated walkthrough of the actual coach-deck flow — built from
-        the same shapes as the real app, safe to load anywhere, no sign-in needed. Want to see the
-        real build in person? <a href="call.html">book a call</a>.</p>
+      <p class="lede center reveal">The real Deck Buddy meet sheet, running right here on the page &mdash;
+        signed in as a head coach on championship morning. Tap around; nothing you do leaves your browser.
+        Want the walkthrough in person? <a href="call.html">Book a call</a>.</p>
 
       <div class="glass wip-banner reveal reveal-pop" role="note">
         <p class="wip-tag"><span class="wip-dot" aria-hidden="true"></span>Work in progress</p>
@@ -84,10 +84,35 @@ else{document.documentElement.removeAttribute('data-theme');}
     </div>
   </section>
 
+  <!-- ============ Live meet sheet (self-hosted build) ============ -->
+  <section class="section-tight" id="live">
+    <div class="wrap-narrow center">
+      <p class="eyebrow center reveal">The real build</p>
+      <h2 class="h2 center balance reveal">The meet sheet, live in your browser.</h2>
+      <p class="lede center reveal">This is the actual app, not a recording. It opens on meet morning at the
+        VCSL Championship with sample swimmers. Start a heat, tap swimmers in finish order, open a swimmer
+        to tag the swim or record a DQ.</p>
+    </div>
+    <div class="wrap-wide mt-2">
+      <div class="glass-lg demo-stage reveal reveal-pop">
+        <div class="browser-bar">
+          <span class="browser-dots" aria-hidden="true"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></span>
+          <span class="browser-url">deckbuddy.app/meet-sheet</span>
+          <a class="btn btn-ghost btn-sm" href="/meet-sheet?reset" target="demo-live">Reset</a>
+          <a class="btn btn-ghost btn-sm" href="/meet-sheet" target="_blank" rel="noopener">Full screen &#8599;</a>
+        </div>
+        <div class="demo-frame-wrap">
+          <iframe class="live-frame" name="demo-live" src="/meet-sheet" title="Deck Buddy meet sheet — live demo" loading="lazy" allow="clipboard-write; fullscreen"></iframe>
+        </div>
+      </div>
+      <p class="faint center mt-1">Sample data. Best on a laptop or iPad &mdash; on a phone, use <a href="/meet-sheet" target="_blank" rel="noopener">full screen</a>.</p>
+    </div>
+  </section>
+
   <!-- ============ Animated mock (always-works preview) ============ -->
   <section class="section-tight">
     <div class="wrap-narrow center">
-      <p class="eyebrow reveal">Always works</p>
+      <p class="eyebrow reveal">The short version</p>
       <h2 class="h2 center balance reveal">An animated preview, no sign-in needed.</h2>
       <p class="lede center reveal">This is a fake screen built from the same shapes as the real app —
         safe to load anywhere, no network required.</p>

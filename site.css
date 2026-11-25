@@ -905,3 +905,19 @@ body::before{
   .inout-grid.roadmap-3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
 }
 .inout-grid .chip{ vertical-align:middle; margin-left:.35rem; font-size:.6875rem; }
+
+/* ---- Live meet-sheet embed (self-hosted build at /meet-sheet) ------------------------------*/
+.wrap-wide{ width:100%; max-width:1440px; margin-inline:auto; padding-inline:clamp(.75rem,3vw,2rem); }
+.btn-sm{ padding:.4rem .8rem; font-size:.82rem; min-height:36px; flex-shrink:0; }
+.live-frame{
+  display:block; width:100%; height:min(860px, 82vh); min-height:560px; border:0; border-radius:14px;
+  background:var(--db-panel-inset);
+}
+@media (max-width:640px){
+  .live-frame{ height:78vh; min-height:480px; }
+  .browser-bar .browser-url{ display:none; }
+}
+
+/* ---- Homepage demo video --------------------------------------------------------------------*/
+.video-stage{ padding:.6rem; border-radius:24px; max-width:1080px; margin-inline:auto; }
+.video-stage video{ display:block; width:100%; height:auto; aspect-ratio:16/9; border-radius:18px; background:#0c1627; }
